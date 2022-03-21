@@ -1,0 +1,46 @@
+.cListingContainer{
+    margin-top: 38px;
+}
+.navigateButton{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #78bddd;
+    padding: 5% 15%;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+.navigateButton:hover {
+   
+   
+    box-shadow: 0 0 20px 10px rgba(213, 228, 236, 0.973);
+    cursor: pointer;
+    border-radius: 15px;
+    
+    text-decoration: none;
+ 
+   
+}
+.navigateText{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    /* font-family: fantasy; */
+    font-size: 17px;
+}
+.navigateHr{
+    border: 3px solid #1AB99D;
+    border-radius: 5px;
+}
+.onlyPhoneView{
+    display: none;
+}
+
+
+@media only screen and (max-width: 415px){
+    .navigateButton{
+        padding: 1% 10%;
+    }
+    
+}
