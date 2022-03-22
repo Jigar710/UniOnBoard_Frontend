@@ -228,6 +228,15 @@ const Navbar = (props) => {
               <Link to="/signup" className='contact' style={{color: "white", backgroundColor: "#78bddd", textTransform:"capitalize"}}>
                   SignUp
               </Link>
+              
+            </div>
+          </Box>
+          <Box sx={{ flexGrow: 0,display: token ? "none" : "flex" }}>
+            <div className="nav-item">
+              <Link to="/login" className='contact' style={{color: "white", backgroundColor: "#78bddd", textTransform:"capitalize"}}>
+                  Login
+              </Link>
+              
             </div>
           </Box>
           <Modal

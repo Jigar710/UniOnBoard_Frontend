@@ -1,13 +1,13 @@
 import React from "react";
 import Home from './components/homepage/Home'
 import { useRoutes } from "react-router-dom";
-import Login from "./components/Login/login";
+import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/navbar";
 import Coaching from "./components/Choaching/choaching";
 import Courses from "./components/Courses/Courses";
 import Blog from "./components/Blogs/Blog";
 import Contact from "./components/Contact Page/Contact";
-import SignUp from "./components/signUp/signup";
+import Register from "./components/signUp/Register";
 import Profile from "./components/UserDetail/Profile";
 
 const Routes = () => {
@@ -50,7 +50,7 @@ const Routes = () => {
         },
         {
             path: '/signup',
-            element: <SignUp />
+            element: <Register />
         }
     ])
 }
