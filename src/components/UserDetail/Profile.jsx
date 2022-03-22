@@ -3,16 +3,16 @@ import {useState,useEffect} from "react";
 import { Card, Container,Grid,Button } from "@mui/material";
 import axios from "axios";
 import "../Choaching/review.css";
-import BlogListingCard from '../Blogs/BlogListingCard';
+// import BlogListingCard from '../Blogs/BlogListingCard';
 import { Row, Col} from 'react-bootstrap';
 
 
 
 function Profile(){
 
-    const dashboardURL = "http://localhost:4000/userdashboard";
+    const dashboardURL = "http://localhost:4000/dashboard";
     const facultyPersonalBlogs = "http://localhost:4000/faculty/getFacultyPersonalBlogs";
-    const changePassword = "http://localhost:4000/password/update";
+    const changePassword = "http://localhost:4000/updatePassword";
 
     const[userData, setUserData] = React.useState('');
     const [blogBtn, setBlogBtn] = useState("none");
@@ -203,7 +203,7 @@ function Profile(){
                     blogsArray.map(
                     blogObj => (
                     <Col sm={12} md={6} key={blogObj._id}>
-                        <BlogListingCard 
+                        {/* <BlogListingCard 
                             key={blogObj._id}
                             id={blogObj._id}
                             // setToggle={setToggle}
@@ -214,7 +214,7 @@ function Profile(){
                             blogRating={blogObj.ratings}
                             blogReviews={blogObj.numberOfReviews}
                             blogContent={blogObj.content}
-                        />
+                        /> */}
                     </Col>
                 ))}
                     </Row>

@@ -66,10 +66,9 @@ const Search = () => {
       <div className="container ">
     <div>
       <div className="container py-5 searchleftside">
-        <h2 className="display-5 fw-bold pb-2 heading ">Explore the Top  Colleges in Gujarat</h2>
+        <h1 className="display-5 fw-bold pb-2 heading ">Explore the Top  Colleges in Gujarat</h1>
         <p className=" fs-6  para">Our mission is to provide the best Colleges list and give youth best offers for your study materials</p>
        
-        <Animation/>
       </div>
       {/* <div className="ui celled list">{renderedResults}</div> */}
     </div>
@@ -81,7 +80,7 @@ const Search = () => {
     <div className='searchimg'>
     <img style={{ 
       backgroundImage: `url("./imgs/search/bgofsearch.png")` 
-    }} className='searchimage  '  src='./imgs/search/studentsearch.png' alt='Search image'/>
+    }} className='searchimage  '  src='./imgs/search/studentsearch.png' alt='Searchimage'/>
     </div>
     </Col>
     </Row>
