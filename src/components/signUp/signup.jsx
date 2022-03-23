@@ -43,7 +43,7 @@ function SignUp(){
                     formData.append("conf_password", confirmpassword);
                     formData.append("role", role);
               
-                    axios.post('http://localhost:4000/signup', formData, {
+                    axios.post('http://localhost:4000/signupdummy', formData, {
                         headers: {
                             'Content-Type': 'application/json'
                         },
