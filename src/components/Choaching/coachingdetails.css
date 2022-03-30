@@ -1,12 +1,13 @@
 .cdHeadingContainer{
-    background: grey;
+  background-image:url('C:\Users\Asus\Downloads\UniOnBoard - FE\UniOnBoard - FE\public\images\final.jpg');
     margin-top: 0%;
+    background-size: 100%;
 }
 .cdHeading{
     text-align: center;
     font: normal normal bold 60px/90px Poppins;
     letter-spacing: 0.6px;
-    color: #ffffff;
+    color: #f8f7f7;
     opacity: 1;
     padding-top: 116px;
 

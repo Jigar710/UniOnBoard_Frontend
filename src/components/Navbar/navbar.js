@@ -17,6 +17,7 @@ import './navbar.css'
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -225,8 +226,11 @@ const Navbar = (props) => {
           </Box> */}
           <Box sx={{ flexGrow: 0,display: token ? "none" : "flex" }}>
             <div className="nav-item">
-              <Link to="/signup" className='contact' style={{color: "white", backgroundColor: "#78bddd", textTransform:"capitalize"}}>
+              <Link to="/register" className='contact' style={{color: "white", backgroundColor: "#78bddd", textTransform:"capitalize"}}>
                   SignUp
+              </Link>
+              <Link to="/login" className='contact' style={{color: "white", backgroundColor: "#78bddd", textTransform:"capitalize"}}>
+                  Login
               </Link>
             </div>
           </Box>

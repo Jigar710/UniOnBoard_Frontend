@@ -2,12 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import CoachingListingCard from './CoachingListingCard';
 import './coachingListing.css';
-import { Row,Col } from 'react-bootstrap';
+import { Row,Col,ListGroup,Card,FormGroup, FormControlLabel,Form ,Check } from 'react-bootstrap';
+import SearchIcon from '@mui/icons-material/Search';
 import Container from 'react-bootstrap/Container'
 import axios from '../api/axios';
 import Coachingdetails from './Coachingdetails';
 import Coachingdet from './Coachingdet';
-
+import { Checkbox } from '@mui/material';
+import StarRateIcon from '@mui/icons-material/StarRate';
 
 const CoachingListing = () => {
 
@@ -16,7 +18,7 @@ const CoachingListing = () => {
   const [toggle,setToggle] = useState(false);
   const [Iid,setIid] = useState(" ");
   const [sIndex,setSindex] = useState(0);
-  const [eIndex,setEindex] = useState(10);
+  const [eIndex,setEindex] = useState(5);
   const [iDet,setIDet] = useState([]);
 
   // console.log(toggle);
@@ -40,22 +42,70 @@ const CoachingListing = () => {
 
         <Container className='cListingContainer' style={{ display: toggle ? 'none' : ' '}}>
         
-            <Row>
+            <Row >
                 
                 <Col sm={12} lg={4}>
-                  {/* For the filter purpose */}
+                <Card className="form-main" style={{ width: '20rem' }}>
+
+            <Form className="filter-main">
+
+            <ListGroup variant="flush" >
+            <h4 style={{marginTop:'5px',fontWeight:'bold',alignSelf:'center'}}>Quick Search</h4>
+            <hr/>
+             
+            <h5 style={{fontWeight:'bold'}}>Mode</h5>
+            
+          <ListGroup.Item>  <Form.Check  type="checkbox" label="Online"/>
+          <Form.Check  type="checkbox" label="Offline"/>
+          
+          
+          </ListGroup.Item>
+         
+
+          <h5 style={{marginTop:'18px',fontWeight:'bold'}}>Location</h5>
+           <ListGroup.Item> 
+           
+          
+           <Form.Check  type="checkbox" label="Surat"/>
+          <Form.Check  type="checkbox" label="Ahemdabad"/>
+          <Form.Check  type="checkbox" label="Jamnagar"/>
+          <Form.Check  type="checkbox" label="Anand"/>
+          <Form.Check  type="checkbox" label="Nadiad"/>
+          <Form.Check  type="checkbox" label="Baroda"/>
+
+           </ListGroup.Item>
+           
+          <h5 style={{marginTop:'18px',fontWeight:'bold'}}>Ratings</h5>
+           <ListGroup.Item> 
+           
+         
+           <Form.Check  className='labeltag'  type="checkbox" label="" /> <label className='label-main'><StarRateIcon /><StarRateIcon /><StarRateIcon /><StarRateIcon /><StarRateIcon /></label><br/>
+          <Form.Check className='labeltag' type="checkbox" label=""/> <label className='label-main'><StarRateIcon /><StarRateIcon /><StarRateIcon /><StarRateIcon /></label><br/>
+          <Form.Check  className='labeltag' type="checkbox" label=""/> <label className='label-main'><StarRateIcon /><StarRateIcon /><StarRateIcon /></label><br/>
+          <Form.Check  className='labeltag' type="checkbox" label=""/> <label className='label-main'><StarRateIcon /><StarRateIcon /></label><br/>
+          <Form.Check   className='labeltag' type="checkbox" label=""/> <label className='label-main'><StarRateIcon /></label>
+
+           </ListGroup.Item>
+           
+
+        </ListGroup>
+       </Form>
+      
+        
+       
+</Card>
                 </Col>
 
                 <Col sm={12} lg={8}>
                   
-                  <Row className='navigatePannel'>
+                  <Row className='navigatePannel '>
                     {/* <Col sm={5} lg={5}></Col> */}
-                    <Col sm={6} className='navigatePannelSpaceCOl'></Col>
+                
                   
-                    <Col className='navigateText' xs={6} lg={2}>Institutes {sIndex + 1} - {eIndex}</Col>
+                    
                      
-                      <Col xs={3} lg={2}>
-                          <button className='navigateButton' onClick={() => {
+                      <Col xs={3} lg={2} >
+                          <button className='navigateButton ' onClick={() => {
                             if(sIndex >= 10){
                               setSindex(sIndex - 10);
                               setEindex(eIndex - 10);
@@ -64,7 +114,7 @@ const CoachingListing = () => {
                               Previous
                           </button>
                         </Col>
-
+                        <Col className='navigateText' xs={6} lg={2}> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{sIndex + 1} - {eIndex}</Col>
                         <Col xs={3} lg={2}>
                           <button className='navigateButton' onClick={() => {
                             if(eIndex <= 196){
@@ -76,8 +126,8 @@ const CoachingListing = () => {
                           </button>
                         </Col>
                       </Row>
-                  <hr className='navigateHr'></hr>
-
+                  {/* <hr className='navigateHr'></hr> */}
+                    <div>
                   {
                     iDetails.slice(sIndex,eIndex).map(
                         iObj => (
@@ -97,6 +147,7 @@ const CoachingListing = () => {
                           )
                       )
                   }
+                  </div>
                 </Col>
                 
             </Row>

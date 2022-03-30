@@ -35,61 +35,16 @@ const Footer = () => {
           <div className="row">
             <div className="col-12 col-lg-10 mx-auto">
               <div className="row">
-                <div className="col-6 col-lg-3">
-                  <h2>Company</h2>
-                  <ul>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                  </ul>
+                
+
+                
+
+                <div className="col-6 col-lg-6">
+                  <h2></h2>
+                  <img src='./uniFooterLogo2.png' alt='footerLogo' className='footerLogo' />
                 </div>
 
-                <div className="col-6 col-lg-3">
-                  <h2>Support</h2>
-                  <ul>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="col-6 col-lg-3">
-                  <h2>Services</h2>
-                  <ul>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                    <li>
-                      <a href="/">About</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="col-6 col-lg-3">
+                <div className="col-6 col-lg-6">
                   <h2>Follow Us</h2>
                   <div className="row">
                     <div className="col-3 mx-auto">
@@ -106,14 +61,14 @@ const Footer = () => {
                     </div>
                    
                   </div>
-                  <img src='./uniFooterLogo2.png' alt='footerLogo' className='footerLogo' />
+                 
                 </div>
                 
               </div>
               <hr />
               <div className="mt-1">
                 <p className="main-hero-para text-center w-100">
-                  Copyright @ 2021 ThapaPay. All rights reserved.
+                  Copyright @ 2021 UniOnBoard. All rights reserved.
                 </p>
               </div>
             </div>

@@ -71,7 +71,7 @@ const BlogListingCard = (props) => {
       
        <Container className='BlgLstContainer'>
             
-  
+                <div className='MainBlgLstCardDiv'>
                <div className='BlgLstCardDiv'>
                <h5 className='blogTitle'> {props.blogTitle}</h5>
                     <div className='blogImgDiv'>
@@ -88,7 +88,7 @@ const BlogListingCard = (props) => {
                             <h6>No. of reviews :- {props.blogReviews}</h6>
                           </Col>
                         </Row>
-                        <button className='blogBtn' onClick={() => {
+                        <button className='blogBtn'  onClick={() => {
                           // props.setbAuthor(props.blogAuthor);
                           props.setbAuthor(props.id);
                           props.setToggle(true);
@@ -97,7 +97,7 @@ const BlogListingCard = (props) => {
                         </button>
                     </div>
                 </div>
-            
+                </div>
               
        </Container>
       

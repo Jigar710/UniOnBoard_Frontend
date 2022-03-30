@@ -25,9 +25,9 @@ const CoachingListingCard = (props) => {
                                 props.setIid(Id);
                             }}>
             <Container className='clcMainContainer'>
-                <div>
+                <div className='card-box'>
                     
-                        <Row>
+                        <Row >
                         <Col sm={1}>
                             {/* Institute Image */}
                             
@@ -53,7 +53,8 @@ const CoachingListingCard = (props) => {
                         </Col>  
                              
                            
-                            <Row>
+                            <Row  > 
+                            
                                 <Col sm={1} className='LocationLogoCol'>
                                     <img src='http://localhost:3000/location.png' alt='LocationLogo' className='instituteLocationImg'/>
                                 </Col>

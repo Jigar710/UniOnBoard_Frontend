@@ -1,7 +1,29 @@
 import React, { useState } from "react";
 import './contact.css';
+import validator from 'validator';
+import InputAdornment from "@material-ui/core/InputAdornment";
+import { useForm } from "react-hook-form";
 
 const Contact = () => {
+  const [emailError, setEmailError] = useState('');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    trigger,
+  } = useForm();
+
+
+  // const validateEmail = (e) => {
+  //   var email = e.target.value
+  
+  //   if (validator.isEmail(email)) {
+  //     setEmailError('Valid Email :)')
+  //   } else {
+  //     setEmailError('Enter valid Email!')
+  //   }
+  // }
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -13,18 +35,29 @@ const Contact = () => {
 
   let name, value;
   const postUserData = (event) => {
+    
     name = event.target.name;
     value = event.target.value;
 
+    var email = event.target.value;
+  
+    if (validator.isEmail(email)) {
+      setEmailError('Valid Email :)')
+    } else {
+      setEmailError('Enter valid Email!')
+    }
+    
+   
+   
     setUserData({ ...userData, [name]: value });
   };
 
   // connect with firebase
   const submitData = async (event) => {
     event.preventDefault();
-    const { firstName, lastName, phone, email, address, message } = userData;
+    const { firstName, lastName,  email, message } = userData;
 
-    if (firstName && lastName && phone && email && address && message) {
+    if (firstName && lastName && email  && message) {
       const res = fetch(
         " ",
         {
@@ -35,9 +68,8 @@ const Contact = () => {
           body: JSON.stringify({
             firstName,
             lastName,
-            phone,
+            
             email,
-            address,
             message,
           }),
         }
@@ -47,9 +79,7 @@ const Contact = () => {
         setUserData({
           firstName: "",
           lastName: "",
-          phone: "",
           email: "",
-          address: "",
           message: "",
         });
         alert("Data Stored");
@@ -70,15 +100,14 @@ const Contact = () => {
               <div className="row">
                 <div className="contact-leftside col-12 col-lg-5">
                   <h1 className="main-heading fw-bold">
-                    Connect With Our <br /> Bodh Labs Team.
+                    Connect With Our <br /> UniOnBoard Team.
                   </h1>
                   <p className="main-hero-para">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Deserunt eaque alias similique.
+                  takes care about student college related problems from college selection to onboarding process.
                   </p>
                   <figure>
                     <img
-                      src="./images/hero1.jpg"
+                      src="./images/phonecontact.jpeg"
                       alt="contatUsImg"
                       className="img-fluid"
                     />
@@ -113,30 +142,23 @@ const Contact = () => {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col-12 col-lg-6 contact-input-feild">
-                        <input
-                          type="text"
-                          name="phone"
-                          id=""
-                          className="form-control"
-                          placeholder="Phone Number "
-                          value={userData.phone}
-                          onChange={postUserData}
-                        />
-                      </div>
-                      <div className="col-12 col-lg-6 contact-input-feild">
+                      
+                      
+                      
+                      <div className="col-12 contact-input-feild">
                         <input
                           type="text"
                           name="email"
-                          id=""
+                          id="userEmail"
                           className="form-control"
                           placeholder="Email ID"
                           value={userData.email}
                           onChange={postUserData}
                         />
+                        {emailError}
                       </div>
                     </div>
-                    <div className="row">
+                    {/* <div className="row">
                       <div className="col-12 contact-input-feild">
                         <input
                           type="text"
@@ -148,11 +170,12 @@ const Contact = () => {
                           onChange={postUserData}
                         />
                       </div>
-                    </div>
+                    </div> */}
 
                     <div className="row">
-                      <div className="col-12 ">
-                        <input
+                      <div className="col-12  " >
+                        <input 
+                          
                           type="text"
                           name="message"
                           id=""
@@ -173,7 +196,7 @@ const Contact = () => {
                       <label
                         class="form-check-label"
                         className="main-hero-para">
-                        I agree that the thapatechnicalpay may contact me at the
+                        I agree that the bodhlabs may contact me at the
                         email address or phone number above
                       </label>
                     </div>

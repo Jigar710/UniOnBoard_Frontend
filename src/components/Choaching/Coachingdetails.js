@@ -56,7 +56,8 @@ const Coachingdetails = (props) => {
 
       // console.log(cDetails);
       // console.log(IBranchList);
-       
+      
+
        
   return(
    <>
@@ -188,12 +189,20 @@ const Coachingdetails = (props) => {
                   <p>Civil Engineering</p> */}
                   
                   {
+                  console.log( IBranchList)}{
                     IBranchList.map(
+
                       branches => (
+                        <div>
                         <li key={branches}>{branches}</li>
+                        {console.log(branches)}
+                        </div>
                       )
+                          
                     )
-                  }
+                    
+                    }
+                  
                     
             
                 </Col>

@@ -10,7 +10,7 @@ import { BrowserRouter, Link, Outlet, useNavigate } from 'react-router-dom';
 
 const BlogListing = () => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const BListing_URL= "/getAllBlog";
 
@@ -67,8 +67,8 @@ const BlogListing = () => {
         <Container className='BlogListingContainer' style={{ display: toggle ? 'none' : ' '}}>
 
         <Row className='navigatePannel' style={{paddingTop:"30px"}}>
-                <Col sm={6}></Col>
-                <Col className='navigateText' xs={6} lg={2}>Institutes {sIndex + 1} - {eIndex}</Col>
+                
+                
 
                 <Col xs={3} lg={2}>
                     <button className='navigateButton' onClick={() => {
@@ -80,7 +80,7 @@ const BlogListing = () => {
                         Previous
                     </button>
                   </Col>
-
+                  <Col className='navigateText' xs={6} lg={2}>{sIndex + 1} - {eIndex}</Col>
                   <Col xs={3} lg={2}>
                     <button className='navigateButton' onClick={() => {
                       if(eIndex <= 10){
@@ -93,7 +93,7 @@ const BlogListing = () => {
                   </Col>
                  
                 </Row>
-                <hr className='navigateHr'></hr>
+                {/* <hr className='navigateHr'></hr> */}
 
             <Row sm={12} md={3}>
             {

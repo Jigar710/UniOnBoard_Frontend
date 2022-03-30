@@ -27,14 +27,22 @@ const Animation = () => {
             <div className="corner-fold"></div>
             <div className="page-text w-richtext">
               <h3><strong>Gujarat</strong></h3>
-              {/* <h6>BY <a href="https://www.poetryfoundation.org/poets/walt-whitman" target="_blank">WALT WHITMAN</a></h6> */}
-              <p>‍</p>
-              <p>Centre of equal daughters, equal sons,</p>
-              <p>All, all alike endear’d, grown, ungrown, young or old,</p>
-              <p>Strong, ample, fair, enduring, capable, rich,</p>
-              <p>Perennial with the Earth, with Freedom, Law and Love,</p>
-              <p>A grand, sane, towering, seated Mother,</p>
-              <p>Chair’d in the adamant of Time.</p>
+              <h6 className='mt-2'>BY <a href="/" target="_blank">UniOnBoard</a></h6>
+              <br/>
+              <p>L.D‍</p>
+              <p>BVM</p>
+              <p>SVNIT</p>
+              <p>DDU</p>
+              <p>DAIICT</p>
+              <p>ADIT</p>
+              <p>NIRMA</p>
+              <p>GIT</p>
+              <p>SVIT</p>
+              <p>Maliba</p>
+              
+              
+              
+              
             </div>
           </div>
         </div>
@@ -58,12 +66,20 @@ const Animation = () => {
           <div className="page-right-2">
             <div className="page-text w-richtext">
               <h3><strong>Colleges</strong></h3>
-              {/* <h6>BY <a href="https://www.poetryfoundation.org/poets/walt-whitman" target="_blank">WALT WHITMAN</a></h6> */}
-              <p>‍</p>
-              <p>A glimpse through an interstice caught, </p>
-              <p>Of a crowd of workmen and drivers in a bar-room around the stove late of a winter night, and I unremark’d seated in a corner, </p>
-              <p>‍</p>
-              <p>Of a youth who loves me and whom I love, silently approaching and seating himself near, that he may hold me by the hand </p>
+              <h6 className='mt-2'>BY <a href="/" target="_blank">UniOnBoard</a></h6>
+              <br/>
+              <p>SCET</p>
+              <p>Mahavir</p>
+              <p>VGEC</p>
+              <p>GEC</p>
+              <p>GCET</p>
+              <p>SPU</p>
+              <p>IIT</p>
+              <p>IIM</p>
+              <p>PDPU</p>
+              <p>Changa</p>
+              
+             
               
             </div>
           </div>

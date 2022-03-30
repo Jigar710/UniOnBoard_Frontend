@@ -137,11 +137,11 @@
  */
  .fontawesome-style {
     font-size: 1.8rem!important;
-    color: var(--primary-color);
+    color:#fff;
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
-    background-color: var(--bgcolor);
+    background-color:#fff;
     display: grid;
     place-items: center;
     text-align: center;
@@ -150,9 +150,15 @@
 
  
 footer {
+  position:relative;
+   bottom:0;
+   width:100%;
     padding: 2rem 0;
-    background-color: #182334;
+    background-color: #333;
     color: #fff;
+    margin-bottom: 0;
+   
+  
   }
   
   footer h2 {
@@ -170,12 +176,12 @@ footer {
   }
   
   footer li:hover {
-    color: var(--primary-color);
+    color: #fff;
   }
   
   footer .fontawesome-style {
     font-size: 2.3rem;
-    color: var(--primary-color);
+    color: #fff;
     background-color: transparent;
     width: 0rem;
     height: 0rem;
