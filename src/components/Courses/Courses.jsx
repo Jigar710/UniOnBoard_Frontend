@@ -4,7 +4,7 @@ import "./Courses.css";
 function Courses() {
 	return (
 		<>
-        <h1 style={{textAlign:"center", marginTop:"15px"}}>UniOnBoard - Introduction | 720p | Demo</h1>
+        <h1 style={{textAlign:"center", marginTop:"15px"}}>Courses</h1>
 			{/* <div className="container">
 				<div className="player-wrapper">
 					<ReactPlayer
