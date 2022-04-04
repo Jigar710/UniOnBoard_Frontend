@@ -1,5 +1,5 @@
 .cdHeadingContainer{
-  background-image:url('C:\Users\Asus\Downloads\UniOnBoard - FE\UniOnBoard - FE\public\images\final.jpg');
+  background-image:url('../../../public/images/final.jpg');
     margin-top: 0%;
     background-size: 100%;
 }

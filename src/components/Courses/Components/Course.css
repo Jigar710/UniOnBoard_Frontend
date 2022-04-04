@@ -1,0 +1,78 @@
+.course{
+    width:350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgb(173, 173, 173);
+    border-radius: 10px;
+    margin: 20px;
+    background-color:rgb(244, 244, 244);
+    padding: 10px;
+}
+
+.courseImg{
+    width: 100%;
+    height:200px;
+    object-fit: fill;
+    box-shadow: 0.5px 0.5px 5px rgb(49, 49, 49);
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.courseTitle{
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 5px;
+    line-height: 25px;
+    color: #444;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.courseAuthor{
+    text-align: center;
+    color: #888;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.courseRating{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+}
+
+
+.courseReleseTime{
+    font-size: 10px;
+    color: rgb(1, 126, 70);
+    margin-top: 5px;
+}
+
+
+.courseRatingPoint, .courseReviewCount{
+    margin-right: 10px;
+}
+
+.courseFilledStar{
+    font-size: 15px;
+    padding: 2px;
+    color: rgb(61, 61, 61);
+}
+
+.coursePrice{
+    font-size:18px;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 25px;
+    color: rgb(0, 0, 0);
+}

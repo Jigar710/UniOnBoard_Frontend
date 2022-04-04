@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
+
+.videoCourse{
+    background: #eee;
+}
+
+.videoCourseHeading{
+    color: #444;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+}
+
+.courseVideos{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    align-items: flex-start;
+    padding: 5px 5%;
+}
+
+.courseVideos .videoMainPanel{
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.courseVideos .videoMainPanel .videoMainPanelItem .video{
+    width:100%;
+    border-radius: 5px;
+}
+
+.courseVideos .videoMainPanel .videoMainPanelItem .videoMainPanelTitle{
+    color: #333;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.courseVideos .videoListPanel{
+    background: #fff;
+    border-radius: 5px;
+    height: 520px;
+    overflow-y: scroll;
+}
+
+.courseVideos .videoListPanel ::-webkit-scrollbar{
+    width: 2px;
+}
+
+.courseVideos .videoListPanel ::-webkit-scrollbar-track{
+    background: #ccc;
+    border-radius: 50px;
+}
+
+.courseVideos .videoListPanel ::-webkit-scrollbar-thumb{
+    background: #666;
+    border-radius: 50px;
+}
+
+.courseVideos .videoListPanel .videoListPanelItem .vid{
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.courseVideos .videoListPanel .videoListPanelItem{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.1);
+    cursor: pointer;
+}
+
+.courseVideos .videoListPanel .videoListPanelItem:hover{
+    background: #eee;
+}
+
+.courseVideos .videoListPanel .videoListPanelItem.active{
+    background: #2980b9;
+}
+
+.courseVideos .videoListPanel .videoListPanelItem.active .videoTitle{
+    color: #fff;
+}
+
+.courseVideos .videoListPanel .videoListPanelItem .videoTitle{
+    color: #333;
+    font-size: 17px;
+}
+
+@media (max-width:991px){
+    .courseVideos{
+        grid-template-columns: 1.5fr 1fr;
+        padding: 10px;
+    }
+}
+
+@media (max-width:768px){
+    .courseVideos{
+        grid-template-columns: 1fr;
+    }
+}
