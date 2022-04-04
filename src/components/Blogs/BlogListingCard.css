@@ -1,142 +1,90 @@
-/* .BlgLstContainer{
-    margin-top: 80px;
-    margin-bottom: 100px;
-    transition: all .2s ease-in-out;
+.MainBlgLstCardDiv {
+	display: inline-block;
 }
-.BlgLstContainer:hover{
-    transform: scale(1.1);
+.blogTitle {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-weight: 600;
 }
-.BlgLstCardDiv{
-    width: 400px;
-    height: 500px;
-    box-shadow:  0px 0px 15px #000;
-    border-radius: 15px;
-}
-.blogImg{
-    border-top-left-radius: 25%;
-    border-bottom-right-radius: 25%;
-    width: 390px;   
-    height: 250px;
-    padding: 15px;
-}
-.hr {
-    display: block;
-    height: 5px;
-    border: 0;
-    border-top: 5px solid #1AB99D;
-}
-.blogContentDiv{
-    padding-top: 40px;
-    padding: 12px;
-}
-.blogBtn{
-    background: #1AB99D;
-    padding: 5px 15px;
-    color: #fff;
-    /* float: right; */
-/* } */
-/*
-.navigateHr{
-    border: 3px solid #1AB99D;
-    border-radius: 5px;
+.BlgLstContainer {
+	margin-top: 80px;
+	margin-bottom: 100px;
+	transition: all 0.2s ease-in-out;
+	
 }
 
-@media only screen and (max-width: 415px){
-    .BlogListingContainer{
-        overflow-x: hidden !important;
-    }
-    .blogImg{
-        width: 350px;   
-    }
-    .BlgLstCardDiv{
-        width: 350px;
-    }
-} */
-.MainBlgLstCardDiv{
-    display: inline-block;
-   
-   
+.BlgLstCardDiv {
+	width: 350px;
+	height: auto;
+	/* box-shadow: 0px 0px 15px rgb(173, 173, 173); */
+	/* border-radius: 5px; */
+    border-radius: 37px;
+	background: #ffffff;
+	box-shadow: 20px 20px 55px #ebebeb, -20px -20px 55px #ffffff;
 }
-.blogTitle{
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-weight: 600;
-}
-.BlgLstContainer{
-    margin-top: 80px;
-    margin-bottom: 100px;
-    transition: all .2s ease-in-out;
-}
-
-.BlgLstCardDiv{
-    width: 400px;
-    height:auto;
-    box-shadow:  0px 0px 15px rgb(173, 173, 173);
-    border-radius: 5px;
-}
-.blogImg{
-    /* border-top-left-radius: 25%;
+.blogImg {
+	/* border-top-left-radius: 25%;
     border-bottom-right-radius: 25%; */
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;   
-    height: 250px;
-    /* padding: 15px; */
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 100%;
+	height: 250px;
+	/* padding: 15px; */
 }
-.blogContent{
-    opacity: 70%;
+.blogContent {
+	opacity: 70%;
 }
-.ratingRow{
-    position: relative;
-    bottom: 0;
+.ratingRow {
+	position: relative;
+	bottom: 0;
 }
 .hr {
-    display: block;
-    height: 5px;
-    border: 0;
-    border-top: 5px solid #1AB99D;
+	display: block;
+	height: 5px;
+	border: 0;
+	border-top: 5px solid #1ab99d;
 }
-.blogContentDiv{
-    padding-top: 40px;
-    padding: 12px;
+.blogContentDiv {
+	padding-top: 40px;
+	padding: 12px;
 }
-.blogBtn{
-    background: #78bddd;
-    padding: 5px 15px;
-    color: #fff;
-    border-radius: 10px;
-    margin-top:20px;
-    border: none;
-    /* float: right; */
+.blogBtn {
+	background: #78bddd;
+	padding: 5px 15px;
+	color: #fff;
+	border-radius: 10px;
+	margin-top: 20px;
+	border: none;
+	/* float: right; */
 }
-.blogBtn:hover{
-    transform: scale(1.01);
-    padding: 5px 15px;
-    color: #fff;
-    border-radius: 10px;
-    margin-top:20px;
-    border: none;
-    /* float: right; */
-    box-shadow: 0 0 20px 10px rgba(213, 228, 236, 0.973);
-    cursor: pointer;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 10px;
+.blogBtn:hover {
+	transform: scale(1.01);
+	padding: 5px 15px;
+	color: #fff;
+	border-radius: 10px;
+	margin-top: 20px;
+	border: none;
+	/* float: right; */
+	box-shadow: 0 0 20px 10px rgba(213, 228, 236, 0.973);
+	cursor: pointer;
+	align-items: center;
+	text-decoration: none;
+	border-radius: 10px;
 }
-.navigateHr{
-    border: 3px solid #1AB99D;
-    border-radius: 5px;
+.navigateHr {
+	border: 3px solid #1ab99d;
+	border-radius: 5px;
 }
 
-@media only screen and (max-width: 415px){
-    .BlogListingContainer{
-        overflow-x: hidden !important;
-    }
-    .blogImg{
-        width: 350px;   
-    }
-    .BlgLstCardDiv{
-        width: 350px;
-    }
+@media only screen and (max-width: 415px) {
+	.BlogListingContainer {
+		overflow-x: hidden !important;
+	}
+	.blogImg {
+		width: 350px;
+	}
+	.BlgLstCardDiv {
+		width: 350px;
+	}
 }

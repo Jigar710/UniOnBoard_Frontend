@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar/navbar";
 import Coaching from "./components/Choaching/choaching";
 import Courses from "./components/Courses/Courses";
 import Blog from "./components/Blogs/Blog";
+import BlogDetails from "./components/Blogs/BlogDetails";
+import AddBlog from "./components/Blogs/AddBlog";
 import Contact from "./components/Contact Page/Contact";
 import Profile from "./components/UserDetail/Profile";
 import Register from "./components/signUp/Register";
@@ -44,7 +46,15 @@ const Routes = () => {
                 {
                     path: '/userdashboard',
                     element: <Profile />
-                }
+                },
+                {
+                    path: '/AddBlog',
+                    element: <AddBlog />
+                },
+                {
+                    path: '/BlogDetails/:id',
+                    element: <BlogDetails />
+                },
             ]
         },
         {
@@ -70,6 +80,7 @@ const Routes = () => {
             path: '/resetPassword/:token',
             element: <ResetPassword />
         },
+       
     ])
 }
 

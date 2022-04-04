@@ -18,7 +18,7 @@ const BlogListing = () => {
     const [sIndex,setSindex] = useState(0);
     const [eIndex,setEindex] = useState(3);
     const[bAuthor,setbAuthor] = useState("");
-    const [toggle,setToggle] = useState(false);
+    // const [toggle,setToggle] = useState(false);
 
     
 
@@ -64,7 +64,7 @@ const BlogListing = () => {
     
   return (
     <>
-        <Container className='BlogListingContainer' style={{ display: toggle ? 'none' : ' '}}>
+        <Container className='BlogListingContainer'>
 
         <Row className='navigatePannel' style={{paddingTop:"30px"}}>
                 
@@ -103,7 +103,7 @@ const BlogListing = () => {
                     <BlogListingCard 
                         key={blogObj._id}
                         id={blogObj._id}
-                        setToggle={setToggle}
+                        // setToggle={setToggle}
                         blogAuthor={blogObj.author}
                         setbAuthor={setbAuthor}
                         blogImgURL={blogObj.photo.secure_url}
@@ -115,10 +115,13 @@ const BlogListing = () => {
                 </Col>
             ))}
                 </Row>
+                <Link to="/AddBlog" className="btn btn-outline-dark my-5 ml-auto ">
+          Add Blog
+        </Link>
         </Container>
-        <div style={{ display: toggle ? ' ' : 'none'}}>
+        {/* <div style={{ display: toggle ? ' ' : 'none'}}>
                   <BlogDetails author= {bAuthor}/>
-        </div>
+        </div> */}
     </>
   );
 }
