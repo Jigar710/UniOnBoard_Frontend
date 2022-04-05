@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { showErrMsg, showSuccessMsg } from '../signUp/notification/Notification'
 import { useNavigate } from 'react-router-dom';
-import "./auth.css"
+// import "./auth.css"
+import "../signUp/signup.css"
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+// toast-configuration method,
+// it is compulsory method.
+toast.configure();
 const initialState = {
     email: '',
     password: '',
@@ -39,43 +45,82 @@ const Login = () => {
             )
             navigate("/", { state: { type: "logIn" } });
             setUser({ ...user, err: '', success: res.data.message })
-
+            toast(res.data.message);
 
         } catch (err) {
             err.response.data.message &&
                 setUser({ ...user, err: err.response.data.message, success: '' })
+                toast(err.response.data.message);
         }
     }
 
     return (
-        <div className="login_page">
-            <h2>Login</h2>
-            {err && showErrMsg(err)}
-            {success && showSuccessMsg(success)}
+        <>
+        {/* <div className="login_page"> */}
+            {/* <h2>Login</h2> */}
+            {/* {err && showErrMsg(err)}
+            {success && showSuccessMsg(success)} */}
 
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email Address</label>
-                    <input type="text" placeholder="Enter email address" id="email"
-                        value={email} name="email" onChange={handleChangeInput} />
-                </div>
+            {/* // <form onSubmit={handleSubmit}>
+            //     <div>
+            //         <label htmlFor="email">Email Address</label>
+            //         <input type="text" placeholder="Enter email address" id="email"
+            //             value={email} name="email" onChange={handleChangeInput} />
+            //     </div>
 
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" placeholder="Enter password" id="password"
-                        value={password} name="password" onChange={handleChangeInput} />
-                </div>
+            //     <div>
+            //         <label htmlFor="password">Password</label>
+            //         <input type="password" placeholder="Enter password" id="password"
+            //             value={password} name="password" onChange={handleChangeInput} />
+            //     </div>
 
-                <div className="row" style={{ display: 'flex', justifyContent: 'start' }}>
-                    <button type="submit" variant='contained'>Login</button>
-                    <Link to="/forgot_password" style={{ display: 'flex', justifyContent: 'end' }}>Forgot your password?</Link>
-                </div>
-            </form>
+            //     <div className="row" style={{ display: 'flex', justifyContent: 'start' }}>
+            //         <button type="submit" variant='contained'>Login</button>
+            //         <Link to="/forgot_password" style={{ display: 'flex', justifyContent: 'end' }}>Forgot your password?</Link>
+            //     </div>
+            // </form> */}
+            <div class="main" style={{height:"45vh"}}>
+				<input type="checkbox" id="chk" aria-hidden="true" />
 
-            <p>Already an account? <Link to="/register">Register</Link></p>
+				<div class="signup">
+					<form onSubmit={handleSubmit}>
+						<label className="label1" for="chk" aria-hidden="true">
+							Login
+						</label>
+						
+						<input
+							className="input1"
+							type="email"
+							name="email"
+							placeholder="Email"
+							value={email}
+							onChange={handleChangeInput}
+						/>
+						<input
+							className="input1"
+							type="password"
+							name="password"
+							placeholder="Password"
+							value={password}
+							onChange={handleChangeInput}
+						/>
+						
+						{/* <div className="container" style={{AlignSelf:"center", textAlign:"center"}}>
+						<a href="/">Forgot password</a></div> */}
+                        <Link to="/forgot_password" style={{ display: 'flex', justifyContent: 'center' }}>Forgot your password?</Link>
+						<button className="button1" type="submit">
+							Login
+						</button>
+					</form>
+				</div>
 
-        </div>
+			</div>
+
+            <p style={{paddingLeft:"50px"}}>Already an account? <Link to="/register">Register</Link></p>
+
+     {/* </div> */}
+        </>
     )
 }
 

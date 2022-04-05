@@ -31,7 +31,7 @@ const Footer = () => {
         </Container> */}
 
         <footer>
-        <div className="container">
+        <div className="container" style={{width:"100vw",margin:"0",maxWidth:"100%"}}>
           <div className="row">
             <div className="col-12 col-lg-10 mx-auto">
               <div className="row">

@@ -1,96 +1,233 @@
-import React, { useState } from 'react'
-import { Link, useNavigate  } from 'react-router-dom'
-import axios from 'axios'
-import { showErrMsg, showSuccessMsg } from '../signUp/notification/Notification'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./signup.css";
+import {
+	showErrMsg,
+	showSuccessMsg,
+} from "../signUp/notification/Notification";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-
+// toast-configuration method,
+// it is compulsory method.
+toast.configure();
 
 const initialState = {
-    name: '',
-    email: '',
-    password: '',
-    conf_password: '',
-    role: '',
-    err: '',
-    success: ''
-}
+	name: "",
+	email: "",
+	password: "",
+	conf_password: "",
+	role: "",
+	err: "",
+	success: "",
+};
 
 function Register() {
-    const navigate = useNavigate()
-    const [user, setUser] = useState(initialState)
+	const navigate = useNavigate();
+	const [user, setUser] = useState(initialState);
 
-    const { name, email, password, conf_password, role, err, success } = user
+	const { name, email, password, conf_password, role, err, success } = user;
 
-    const handleChangeInput = e => {
-        const { name, value } = e.target
-        setUser({ ...user, [name]: value, err: '', success: '' })
-    }
+	const handleChangeInput = (e) => {
+		const { name, value } = e.target;
+		setUser({ ...user, [name]: value, err: "", success: "" });
+	};
 
+	const handleSubmitStudent = async (e) => {
+		e.preventDefault();
+        let role="student";
+		try {
+			const res = await axios.post("http://localhost:4000/signup", {
+				name,
+				email,
+				password,
+				conf_password,
+				role,
+			});
+			setUser({ ...user, err: "", success: res.data.message });
+			toast(res.data.message);
+			// setTimeout(() => {
+			//     this.router.navigate(['/login']);
+			// }, 5000);
+			setTimeout(() => {
+				navigate("/login");
+			}, 2000);
+		} catch (err) {
+			err.response.data.message &&
+				//setUser({ ...user, [name]: "",  err: err.response.data.message, success: "" });
+				//setUser({ ...user, err: err.response.data.message, success: "" });
+				setUser({
+					name: "",
+					email: "",
+					password: "",
+					conf_password: "",
+					role: "",
+					err: err.response.data.message,
+					success: "",
+				});
+			toast(err.response.data.message);
+		}
+	};
+    const handleSubmitFaculty = async (e) => {
+		e.preventDefault();
+        let role="faculty";
+		try {
+			const res = await axios.post("http://localhost:4000/signupFaculty", {
+				name,
+				email,
+				password,
+				conf_password,
+				role,
+			});
+			setUser({ ...user, err: "", success: res.data.message });
+			toast(res.data.message);
+			// setTimeout(() => {
+			//     this.router.navigate(['/login']);
+			// }, 5000);
+			setTimeout(() => {
+				navigate("/login");
+			}, 2000);
+		} catch (err) {
+			err.response.data.message &&
+				//setUser({ ...user, [name]: "",  err: err.response.data.message, success: "" });
+				//setUser({ ...user, err: err.response.data.message, success: "" });
+				setUser({
+					name: "",
+					email: "",
+					password: "",
+					conf_password: "",
+					role: "",
+					err: err.response.data.message,
+					success: "",
+				});
+			toast(err.response.data.message);
+		}
+	};
+	return (
+		<>
+			{/* {err && showErrMsg(err)}
+			{success && showSuccessMsg(success)} */}
+			<div className="container titlelogo">SignUp</div>
+			<div class="main">
+				<input type="checkbox" id="chk" aria-hidden="true" />
 
-    const handleSubmit = async e => {
-        e.preventDefault()
-        try {
-            const res = await axios.post('http://localhost:4000/signup', { name, email, password, conf_password, role })
-            setUser({ ...user, err: '', success: res.data.message })
-            
-            // setTimeout(() => {
-            //     this.router.navigate(['/login']);
-            // }, 5000);
-            setTimeout(() => {  navigate("/login") }, 2000);
-        } catch (err) {
-            err.response.data.message &&
-                setUser({ ...user, err: err.response.data.message, success: '' })
-        }
-    }
+				<div class="signup">
+					<form onSubmit={handleSubmitFaculty}>
+						<label className="label1" for="chk" aria-hidden="true">
+							Faculty
+						</label>
+						<input
+							className="input1"
+							type="text"
+							name="name"
+							placeholder="Name"
+							value={name}
+							onChange={handleChangeInput}
+						/>
+						<input
+							className="input1"
+							type="email"
+							name="email"
+							placeholder="Email"
+							value={email}
+							onChange={handleChangeInput}
+						/>
+						<input
+							className="input1"
+							type="password"
+							name="password"
+							placeholder="Password"
+							value={password}
+							onChange={handleChangeInput}
+						/>
+						<input
+							className="input1"
+							type="password"
+							name="conf_password"
+							placeholder="Confirm Password"
+							value={conf_password}
+							onChange={handleChangeInput}
+						/>
+                        <label style={{ justifyContent: "center", display: "flex",fontWeight:"bold"}}>Upload Legal Proof Of College :</label>
+						<input
+							style={{ justifyContent: "center", display: "flex", marginInline:"53px"}}
+							type="file"
+							name="doc"
+						/>
+						{/* <input
+							type="text"
+							name="role"
+							placeholder="Role"
+						/> */}
+						<input type="hidden" id="role" name="role" value="student" />
+						{/* <div className="container" style={{AlignSelf:"center", textAlign:"center"}}>
+						<a href="/">Forgot password</a></div> */}
+						<button className="button1" type="submit">
+							Sign up
+						</button>
+					</form>
+				</div>
 
-    return (
-        <div className="login_page">
-       
-            <h2>Register</h2>
-            {err && showErrMsg(err)}
-            {success && showSuccessMsg(success)}
-
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" placeholder="Enter your name" id="name"
-                        value={name} name="name" onChange={handleChangeInput} />
-                </div>
-
-                <div>
-                    <label htmlFor="email">Email Address</label>
-                    <input type="text" placeholder="Enter email address" id="email"
-                        value={email} name="email" onChange={handleChangeInput} />
-                </div>
-
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" placeholder="Enter password" id="password"
-                        value={password} name="password" onChange={handleChangeInput} />
-                </div>
-
-                <div>
-                    <label htmlFor="conf_password">Confirm Password</label>
-                    <input type="password" placeholder="Confirm password" id="conf_password"
-                        value={conf_password} name="conf_password" onChange={handleChangeInput} />
-                </div>
-
-                <div>
-                    <label htmlFor="role">Role</label>
-                    <input type="text" placeholder="role" id="role"
-                        value={role} name="role" onChange={handleChangeInput} />
-                </div>
-
-                <div className="row">
-                    <button type="submit">Register</button>
-                </div>
-            </form>
-
-            <p>Already an account? <Link to="/login">Login</Link></p>
-
-          
-        </div>
-    )
+				<div class="login">
+					<form onSubmit={handleSubmitStudent}>
+						<label className="label1" for="chk" aria-hidden="true">
+							Student
+						</label>
+						<input
+							className="input1"
+							type="text"
+							name="name"
+							placeholder="Name"
+							value={name}
+							onChange={handleChangeInput}
+						/>
+						<input
+							className="input1"
+							type="email"
+							name="email"
+							placeholder="Email"
+							value={email}
+							onChange={handleChangeInput}
+						/>
+						<input
+							className="input1"
+							type="password"
+							name="password"
+							placeholder="Password"
+							value={password}
+							onChange={handleChangeInput}
+						/>
+						<input
+							className="input1"
+							type="password"
+							name="conf_password"
+							placeholder="Confirm Password"
+							value={conf_password}
+							onChange={handleChangeInput}
+						/>
+                        {/* <label style={{ justifyContent: "center", display: "flex",fontWeight:"bold"}}>Upload Legal Proof Of College :</label>
+						<input
+							style={{ justifyContent: "center", display: "flex", marginInline:"53px"}}
+							type="file"
+							name="doc"
+						/> */}
+						{/* <input
+							type="text"
+							name="role"
+							placeholder="Role"
+						/> */}
+						{/* <input type="hidden" id="role" name="role" value="student" /> */}
+						{/* <div className="container" style={{AlignSelf:"center", textAlign:"center"}}>
+						<a href="/">Forgot password</a></div> */}
+						<button className="button1" type="submit">
+							Sign up
+						</button>
+					</form>
+				</div>
+			</div>
+		</>
+	);
 }
 
-export default Register
+export default Register;
