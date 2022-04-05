@@ -115,9 +115,11 @@ const BlogListing = () => {
                 </Col>
             ))}
                 </Row>
-                <Link to="/AddBlog" className="btn btn-outline-dark my-5 ml-auto ">
+                <Container style={{paddingInline:"580px", marginBottom:"110px"}}>
+                 <Link to="/AddBlog" className="addblogbtn" style={{textDecoration:"none"}}>
           Add Blog
         </Link>
+        </Container>
         </Container>
         {/* <div style={{ display: toggle ? ' ' : 'none'}}>
                   <BlogDetails author= {bAuthor}/>

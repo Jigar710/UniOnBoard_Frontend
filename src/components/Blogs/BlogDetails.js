@@ -66,10 +66,10 @@ const BlogDetails = (props) => {
 		<>
 			{/* {props.author} */}
 			<Container className="blogDetContainer">
-				<Row>
-					<Col xs={12} lg={12} className="blogImgCol">
+					{/* <Col xs={12} lg={12} className="blogImgCol"> */}
 						<img className="blogImg" src={imgURL} alt="blog"></img>
-					</Col>
+					{/* </Col> */}
+				<Row>
 					<Row>
 						<h1 className="pBlogTitle">{title}</h1>
 					</Row>

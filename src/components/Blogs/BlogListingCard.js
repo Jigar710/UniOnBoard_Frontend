@@ -89,7 +89,7 @@ const BlogListingCard = (props) => {
                             <h6>No. of reviews :- {props.blogReviews}</h6>
                           </Col>
                         </Row>
-                       
+                       <div className='d-flex justify-content-center'>
                         <button className='blogBtn' onClick={()=>{
                           props.setbAuthor(props.id);
                           // props.setToggle(true);
@@ -97,6 +97,7 @@ const BlogListingCard = (props) => {
                         }}>
                           Read more
                         </button>
+                        </div>
                     </div>
                 </div>
                 </div>

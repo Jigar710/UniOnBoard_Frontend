@@ -2,12 +2,13 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
-/* .blogImg{
-    height: 500px;
+.blogImg{
+    width:100%;
+    height: auto;
 }
-.blogImgCol{
+/* .blogImgCol{
     height: 500px;
-}  */
+} */
 .pBlogFirstLetter{
     font-weight: 700;
     font-size: 48px;
