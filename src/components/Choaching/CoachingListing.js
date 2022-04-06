@@ -53,13 +53,13 @@ const CoachingListing = () => {
             <h4 style={{marginTop:'5px',fontWeight:'bold',alignSelf:'center'}}>Quick Search</h4>
             <hr/>
              
-            <h5 style={{fontWeight:'bold'}}>Mode</h5>
+            {/* <h5 style={{fontWeight:'bold'}}>Mode</h5>
             
           <ListGroup.Item>  <Form.Check  type="checkbox" label="Online"/>
           <Form.Check  type="checkbox" label="Offline"/>
           
           
-          </ListGroup.Item>
+          </ListGroup.Item> */}
          
 
           <h5 style={{marginTop:'18px',fontWeight:'bold'}}>Location</h5>
