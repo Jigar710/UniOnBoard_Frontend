@@ -9,6 +9,7 @@ import {
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 // toast-configuration method,
 // it is compulsory method.
 toast.configure();
@@ -26,7 +27,7 @@ const initialState = {
 function Register() {
 	const navigate = useNavigate();
 	const [user, setUser] = useState(initialState);
-
+	const [photo, setPhoto] = useState(null);
 	const { name, email, password, conf_password, role, err, success } = user;
 
 	const handleChangeInput = (e) => {
@@ -38,6 +39,8 @@ function Register() {
 		e.preventDefault();
         let role="student";
 		try {
+			
+	
 			const res = await axios.post("http://localhost:4000/signup", {
 				name,
 				email,
@@ -73,21 +76,53 @@ function Register() {
 		e.preventDefault();
         let role="faculty";
 		try {
-			const res = await axios.post("http://localhost:4000/signupFaculty", {
-				name,
-				email,
-				password,
-				conf_password,
-				role,
-			});
-			setUser({ ...user, err: "", success: res.data.message });
-			toast(res.data.message);
-			// setTimeout(() => {
-			//     this.router.navigate(['/login']);
-			// }, 5000);
-			setTimeout(() => {
-				navigate("/login");
-			}, 2000);
+			let formData = new FormData(); 
+
+			formData.append("name", name); 
+			formData.append("email", email);
+			formData.append("password", password);
+			formData.append("conf_password", conf_password);
+			formData.append("role", role);
+			formData.append("idProff", photo);
+	
+			const config = {
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "multipart/form-data",
+				  },
+				  withCredentials: true
+			};
+			
+			 axios
+				.post("http://localhost:4000/signupFaculty", formData, config)
+				.then(async(res) => {
+				
+					console.log(res);
+					toast(res.data.message);
+				})
+				.catch((error) => {
+					console.log(error);
+					toast(error.message)
+				});
+				
+			
+		
+	
+	// 		const res = await axios.post("http://localhost:4000/signupFaculty", {
+	// 			name,
+	// 			email,
+	// 			password,
+	// 			conf_password,
+	// 			role,
+	// 		});
+	// 		setUser({ ...user, err: "", success: res.data.message });
+	// 		toast(res.data.message);
+	// 		// setTimeout(() => {
+	// 		//     this.router.navigate(['/login']);
+	// 		// }, 5000);
+	// 		setTimeout(() => {
+	// 			navigate("/login");
+	// 		}, 2000);
 		} catch (err) {
 			err.response.data.message &&
 				//setUser({ ...user, [name]: "",  err: err.response.data.message, success: "" });
@@ -114,7 +149,7 @@ function Register() {
 				<input type="checkbox" id="chk" aria-hidden="true" />
 
 				<div className="signup">
-					<form onSubmit={handleSubmitFaculty}>
+				<form method="POST" encType="multipart/form-data" onSubmit={handleSubmitFaculty}>
 						<label className="label1" for="chk" aria-hidden="true">
 							Faculty
 						</label>
@@ -151,11 +186,12 @@ function Register() {
 							onChange={handleChangeInput}
 						/>
                         <label style={{ justifyContent: "center", display: "flex",fontWeight:"bold"}}>Upload Legal Proof Of College :</label>
+					
 						<input
-							style={{ justifyContent: "center", display: "flex", marginInline:"53px"}}
-							type="file"
-							name="doc"
-						/>
+						style={{ justifyContent: "center", display: "flex", marginInline:"53px"}}
+						type="file"
+						onChange={(e) => setPhoto(e.target.files[0])}
+					/>
 						{/* <input
 							type="text"
 							name="role"

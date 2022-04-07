@@ -90,6 +90,11 @@ const Routes = () => {
             
         },
         {
+            path: '/activateEmailFaculty/:activation_token',
+            element: <ActivationEmail />
+            
+        },
+        {
             path: 'forgot_password',
             element: <ForgotPassword />
             
