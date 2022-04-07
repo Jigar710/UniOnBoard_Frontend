@@ -14,6 +14,8 @@ import Register from "./components/signUp/Register";
 import ActivationEmail from "./components/Login/ActivationEmail";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword"
 import ResetPassword from "./components/forgotPassword/ResetPassword"
+import Dashboard from "./components/Dashboard/DashboardMain";
+import DashboardHome from "./components/Dashboard/pages/DashboardHome/DashboardHome";
 
 const Routes = () => {
 
@@ -54,6 +56,16 @@ const Routes = () => {
                 {
                     path: '/BlogDetails/:id',
                     element: <BlogDetails />
+                },
+                {
+                    path: '/Dashboard',
+                    element: <Dashboard />,
+                    children:[
+                        {
+                            path: '/Dashboard/home',
+                            element: <DashboardHome />
+                        },
+                    ]
                 },
             ]
         },

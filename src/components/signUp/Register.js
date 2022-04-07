@@ -109,10 +109,11 @@ function Register() {
 			{/* {err && showErrMsg(err)}
 			{success && showSuccessMsg(success)} */}
 			<div className="container titlelogo">SignUp</div>
-			<div class="main">
+			<div className="body1">
+			<div className="main">
 				<input type="checkbox" id="chk" aria-hidden="true" />
 
-				<div class="signup">
+				<div className="signup">
 					<form onSubmit={handleSubmitFaculty}>
 						<label className="label1" for="chk" aria-hidden="true">
 							Faculty
@@ -169,7 +170,7 @@ function Register() {
 					</form>
 				</div>
 
-				<div class="login">
+				<div className="login">
 					<form onSubmit={handleSubmitStudent}>
 						<label className="label1" for="chk" aria-hidden="true">
 							Student
@@ -225,6 +226,7 @@ function Register() {
 						</button>
 					</form>
 				</div>
+			</div>
 			</div>
 		</>
 	);

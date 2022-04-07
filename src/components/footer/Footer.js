@@ -1,8 +1,8 @@
 import React from 'react';
 import './footer.css';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import Container from 'react-bootstrap/Container';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
 
 const Footer = () => {
   return(
@@ -40,7 +40,7 @@ const Footer = () => {
                 
 
                 <div className="col-6 col-lg-6">
-                  <h2></h2>
+                  
                   <img src='./uniFooterLogo2.png' alt='footerLogo' className='footerLogo' />
                 </div>
 

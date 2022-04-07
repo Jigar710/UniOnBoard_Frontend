@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { showErrMsg, showSuccessMsg } from '../signUp/notification/Notification'
+// import { showErrMsg, showSuccessMsg } from '../signUp/notification/Notification'
 import { useNavigate } from 'react-router-dom';
 // import "./auth.css"
 import "../signUp/signup.css"
@@ -80,6 +80,8 @@ const Login = () => {
             //         <Link to="/forgot_password" style={{ display: 'flex', justifyContent: 'end' }}>Forgot your password?</Link>
             //     </div>
             // </form> */}
+            <div className="container titlelogo">SignUp</div>
+			<div className="body1">
             <div class="main" style={{height:"45vh"}}>
 				<input type="checkbox" id="chk" aria-hidden="true" />
 
@@ -114,11 +116,9 @@ const Login = () => {
 						</button>
 					</form>
 				</div>
-
 			</div>
 
-            <p style={{paddingLeft:"50px"}}>Already an account? <Link to="/register">Register</Link></p>
-
+</div>
      {/* </div> */}
         </>
     )

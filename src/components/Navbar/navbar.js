@@ -144,6 +144,9 @@ const Navbar = (props) => {
               <MenuItem >
                 <Link to="/contactus"> Contact Us </Link>
               </MenuItem>
+              <MenuItem >
+                <Link to="/Dashboard"> Dashboard </Link>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -178,6 +181,11 @@ const Navbar = (props) => {
               <div className="nav-item">
                 <Link to="/Contactus" className='contact' style={{color: "white"}}>
                   Contact Us
+                </Link>
+              </div>
+              <div className="nav-item">
+                <Link to="/Dashboard" className='contact' style={{color: "white"}}>
+                  Dashboard
                 </Link>
               </div>
           </Box>
