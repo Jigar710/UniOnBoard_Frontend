@@ -123,7 +123,7 @@ const BlogDetails = (props) => {
 								))}
 							</Col>
 							<Col xs={6}>
-								<Addreview id={authorid} />
+								<Addreview id={authorid}  />
 							</Col>
 						</Row>
 					</Row>

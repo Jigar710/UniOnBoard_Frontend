@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// toast-configuration method,
+// it is compulsory method.
+toast.configure();
+
+
 const Addreview = ({id}) => {
 	const [rating, setRating] = useState(0);
 	const [comment, setComment] = useState("");
+
+	const sleep = (milliseconds) => {
+		return new Promise(resolve => setTimeout(resolve, milliseconds))
+	  }
 
 	const submitData = async (event) => {
 		event.preventDefault();
@@ -20,14 +32,21 @@ const Addreview = ({id}) => {
 			withCredentials: true,
 		};
 
-		axios
+			axios
 			.put(`http://localhost:4000/review/${id}`, formData, config)
-			.then((response) => {
-				console.log(response);
+			.then(async(response) => {
+
+				setComment('') 
+				setRating(0)
+				
+				toast("Review Added")
+				document.location.reload();
 			})
 			.catch((error) => {
 				console.log(error);
+				toast(error.message)
 			});
+
 	};
 
 	return (
@@ -52,9 +71,11 @@ const Addreview = ({id}) => {
 					<button
 						type="submit"
 						className="btn btn-style w-100"
-						onClick={submitData}
+						onClick={submitData
+						}
 					>
 						Submit
+
 					</button>
 				</form>
 			</div>

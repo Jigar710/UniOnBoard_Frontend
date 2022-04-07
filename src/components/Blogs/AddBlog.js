@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import "./AddBlog.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// toast-configuration method,
+// it is compulsory method.
+toast.configure();
 
 const AddBlog = () => {
 	const [title, setTitle] = useState("");
@@ -8,11 +14,12 @@ const AddBlog = () => {
 	const [photo, setPhoto] = useState(null);
 
 	const submitData = async (event) => {
+		
 		event.preventDefault();
 
-		let formData = new FormData(); //formdata object
+		let formData = new FormData(); 
 
-		formData.append("title", title); //append the values with key, value pair
+		formData.append("title", title); 
 		formData.append("content", content);
 		formData.append("photo", photo);
 
@@ -23,15 +30,24 @@ const AddBlog = () => {
               },
               withCredentials: true
 		};
-
-		axios
+		
+		 axios
 			.post("http://localhost:4000/faculty/blog/add", formData, config)
-			.then((response) => {
-				console.log(response);
+			.then(async(res) => {
+				setTitle('')
+				setContent('')
+				setPhoto({})
+
+				toast(res.message)
+				
+
 			})
 			.catch((error) => {
 				console.log(error);
+				toast(error.message)
 			});
+			
+		
 	};
 
 	return (

@@ -4,7 +4,7 @@ import './coachingdetails.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import axios from '../api/axios';
-
+import { useParams } from "react-router-dom";
 
 
 // const coachingDetails_URL = '/displayCoachingDetails';
@@ -14,8 +14,8 @@ const Coachingdetails = (props) => {
   // console.log(props.ID)
   const instId = props.ID;
   console.log(props.ID);
-
-  const coachingDetails_URL = `/getParticularInstitute/${instId}`;
+  const { id } = useParams();
+  const coachingDetails_URL = `/getParticularInstitute/${id}`;
 
   const [cDetails,setCDetails] = useState("");
   const [Iname,setIName] = useState(" ");

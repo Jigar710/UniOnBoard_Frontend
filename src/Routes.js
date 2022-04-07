@@ -16,6 +16,7 @@ import ForgotPassword from "./components/forgotPassword/ForgotPassword"
 import ResetPassword from "./components/forgotPassword/ResetPassword"
 import Dashboard from "./components/Dashboard/DashboardMain";
 import DashboardHome from "./components/Dashboard/pages/DashboardHome/DashboardHome";
+import Coachingdeta from "./components/Choaching/Coachingdeta";
 
 const Routes = () => {
 
@@ -57,6 +58,11 @@ const Routes = () => {
                     path: '/BlogDetails/:id',
                     element: <BlogDetails />
                 },
+                {
+                    path: '/CoachingDetailes/:id',
+                    element: <Coachingdeta />
+                },
+            
                 {
                     path: '/Dashboard',
                     element: <Dashboard />,

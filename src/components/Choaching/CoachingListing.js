@@ -17,7 +17,7 @@ import {
 import Container from "react-bootstrap/Container";
 import axios from "../api/axios";
 // import Coachingdetails from "./Coachingdetails";
-import Coachingdet from "./Coachingdet";
+import Coachingdet from "./Coachingdeta";
 // import { Checkbox } from "@mui/material";
 import StarRateIcon from "@mui/icons-material/StarRate";
 

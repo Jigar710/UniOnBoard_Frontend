@@ -197,7 +197,7 @@ const Contact = () => {
                         class="form-check-label"
                         className="main-hero-para">
                         I agree that the bodhlabs may contact me at the
-                        email address or phone number above
+                        email address 
                       </label>
                     </div>
 

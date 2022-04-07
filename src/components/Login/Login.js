@@ -82,7 +82,7 @@ const Login = () => {
             // </form> */}
             <div className="container titlelogo">SignUp</div>
 			<div className="body1">
-            <div class="main" style={{height:"45vh"}}>
+            <div class="main" style={{height:"auto"}}>
 				<input type="checkbox" id="chk" aria-hidden="true" />
 
 				<div class="signup">
