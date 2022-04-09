@@ -360,9 +360,9 @@ const CoachingListing = () => {
 					</Col>
 				</Row>
 			</Container>
-			<div style={{ display: toggle ? " " : "none" }}>
+			{/* <div style={{ display: toggle ? " " : "none" }}>
 				<Coachingdet id={Iid} />
-			</div>
+			</div> */}
 		</>
 	);
 };

@@ -12,6 +12,7 @@ import Contact from "./components/Contact Page/Contact";
 import Profile from "./components/UserDetail/Profile";
 import Register from "./components/signUp/Register";
 import ActivationEmail from "./components/Login/ActivationEmail";
+import ActivationEmailFaculty from "./components/Login/ActivationEmailFaculty";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword"
 import ResetPassword from "./components/forgotPassword/ResetPassword"
 import Dashboard from "./components/Dashboard/DashboardMain";
@@ -91,7 +92,7 @@ const Routes = () => {
         },
         {
             path: '/activateEmailFaculty/:activation_token',
-            element: <ActivationEmail />
+            element: <ActivationEmailFaculty />
             
         },
         {
