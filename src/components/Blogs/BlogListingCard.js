@@ -50,6 +50,7 @@
 import React from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
 import { Link, Route } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import BlogDetails from './BlogDetails';
 import './BlogListingCard.css';
 
@@ -63,7 +64,7 @@ const BlogListingCard = (props) => {
     //   ratings = ratings.toFixed(2);
     //   console.log(ratings);
   // console.log(props.blogAuthor);
-  
+  let navigate = useNavigate(); 
   return (
     <>
 
@@ -88,13 +89,15 @@ const BlogListingCard = (props) => {
                             <h6>No. of reviews :- {props.blogReviews}</h6>
                           </Col>
                         </Row>
-                        <button className='blogBtn'  onClick={() => {
-                          // props.setbAuthor(props.blogAuthor);
+                       <div className='d-flex justify-content-center'>
+                        <button className='blogBtn' onClick={()=>{
                           props.setbAuthor(props.id);
-                          props.setToggle(true);
+                          // props.setToggle(true);
+                          navigate(`/BlogDetails/${props.id}`);
                         }}>
                           Read more
                         </button>
+                        </div>
                     </div>
                 </div>
                 </div>

@@ -3,15 +3,16 @@ import './coachingListingCard.css';
 import { Container } from 'react-bootstrap';
 import { Row,Col } from 'react-bootstrap';
 import { useState } from 'react';
-import Coachingdet from './Coachingdet';
+import Coachingdet from './Coachingdeta';
 import { BrowserRouter as Routes, Route } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-<Routes>
+ <Routes>
       <Route exact path="/Coachingdet" component={Coachingdet} />
-</Routes>
+</Routes> 
 
 const CoachingListingCard = (props) => {
-
+    let navigate = useNavigate(); 
     const Id = props.id;
     // console.log(Id);
     // console.log(props.logo);
@@ -23,6 +24,7 @@ const CoachingListingCard = (props) => {
                                 props.setToggle(true);
                                 // console.log(Id);
                                 props.setIid(Id);
+                                 navigate(`/CoachingDetailes/${props.id}`);
                             }}>
             <Container className='clcMainContainer'>
                 <div className='card-box'>

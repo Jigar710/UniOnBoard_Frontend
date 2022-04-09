@@ -1,18 +1,24 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
-
-function Courses(){
-
-    const navigate = useNavigate()
-
-    
-
-    return(
-        <>
-            <h2>Courses Page</h2> 
-        </>
-    )
+import ReactPlayer from "react-player";
+import "./Courses.css";
+function Courses() {
+	return (
+		<>
+        <h1 style={{textAlign:"center", marginTop:"15px"}}>Courses</h1>
+			{/* <div className="container">
+				<div className="player-wrapper">
+					<ReactPlayer
+						controls
+						className="react-player"
+						//   https://youtu.be/PqToYlWo6p8
+						url="https://www.youtube.com/watch?v=PqToYlWo6p8"
+						width="95%"
+						height="95%"
+					/>
+				</div>
+			</div> */}
+		</>
+	);
 }
 
 export default Courses;

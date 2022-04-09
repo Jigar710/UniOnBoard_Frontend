@@ -6,12 +6,18 @@ import Navbar from "./components/Navbar/navbar";
 import Coaching from "./components/Choaching/choaching";
 import Courses from "./components/Courses/Courses";
 import Blog from "./components/Blogs/Blog";
+import BlogDetails from "./components/Blogs/BlogDetails";
+import AddBlog from "./components/Blogs/AddBlog";
 import Contact from "./components/Contact Page/Contact";
 import Profile from "./components/UserDetail/Profile";
 import Register from "./components/signUp/Register";
 import ActivationEmail from "./components/Login/ActivationEmail";
+import ActivationEmailFaculty from "./components/Login/ActivationEmailFaculty";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword"
 import ResetPassword from "./components/forgotPassword/ResetPassword"
+import Dashboard from "./components/Dashboard/DashboardMain";
+import DashboardHome from "./components/Dashboard/pages/DashboardHome/DashboardHome";
+import Coachingdeta from "./components/Choaching/Coachingdeta";
 
 const Routes = () => {
 
@@ -44,7 +50,30 @@ const Routes = () => {
                 {
                     path: '/userdashboard',
                     element: <Profile />
-                }
+                },
+                {
+                    path: '/AddBlog',
+                    element: <AddBlog />
+                },
+                {
+                    path: '/BlogDetails/:id',
+                    element: <BlogDetails />
+                },
+                {
+                    path: '/CoachingDetailes/:id',
+                    element: <Coachingdeta />
+                },
+            
+                {
+                    path: '/Dashboard',
+                    element: <Dashboard />,
+                    children:[
+                        {
+                            path: '/Dashboard/home',
+                            element: <DashboardHome />
+                        },
+                    ]
+                },
             ]
         },
         {
@@ -62,6 +91,11 @@ const Routes = () => {
             
         },
         {
+            path: '/activateEmailFaculty/:activation_token',
+            element: <ActivationEmailFaculty />
+            
+        },
+        {
             path: 'forgot_password',
             element: <ForgotPassword />
             
@@ -70,6 +104,7 @@ const Routes = () => {
             path: '/resetPassword/:token',
             element: <ResetPassword />
         },
+       
     ])
 }
 

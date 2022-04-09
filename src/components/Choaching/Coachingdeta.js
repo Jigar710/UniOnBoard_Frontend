@@ -9,7 +9,7 @@ import CoachingListingCard from './CoachingListingCard';
 import { useState } from 'react';
 
 
-const Coaching = (props) => {
+const Coachingdeta = (props) => {
 
 
   return(
@@ -34,4 +34,4 @@ const Coaching = (props) => {
   );
 };
 
-export default Coaching;
+export default Coachingdeta;
