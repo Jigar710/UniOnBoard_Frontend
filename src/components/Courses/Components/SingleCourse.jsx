@@ -1,134 +1,117 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import {useParams} from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import VideoPalyer from 'react-video-js-player';
+import axios from 'axios';
 import './SingleCourse.css';
+import { ChangeCircleOutlined } from '@mui/icons-material';
 
-const changeVid = () => {
-    let listVideo = document.querySelectorAll('.courseVideos .videoListPanel .videoListPanelItem')
-    let mainVideo = document.querySelector('.courseVideos .videoMainPanel .videoMainPanelItem .video')
-    let title = document.querySelectorAll('.courseVideos .videoMainPanel .videoMainPanelItem .videoMainPanelTitle')
-    
-    return (
-        listVideo.forEach(video =>{
-        
-            video.onclick = () =>{
-            listVideo.forEach(vid => vid.classList.remove('active'));
-                video.classList.add('active');
-                if(video.classList.contains('active')){
-                    let src = video.children[0].getAttribute('url');
-                    mainVideo.src = src;
-                    let text = video.children[1].innerHTML;
-                    title.innerHTML = text;
-                };
-            };
-    })
-    )
-}
+
 
 export default function SingleCourse() {
     
-    const [id,setId] = useState(null); 
+    const {id} = useParams();
+    const apiURL = `http://localhost:4000/getCourseContent/${id}`
+    const [sectionData, setSectionData] = useState([])
+    const [courseData, setCourseData] = useState([])
+    const [mainPanelSrc,setMainPanelSrc] = useState("");
+    const [mainPanelTitle, setMainPanelTitle] = useState("");
+    const [mainPanelDesc, setMainPanelDesc] = useState("") 
+    const [mainPanelVNo, setMainPanelVNo] = useState("") 
 
+    const showDropDown = (e)=>{
+        var dropdown = document.getElementsByClassName(`videoSectionTitle ${e}`);
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            var dropdownContent = dropdown[i].nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        }
+    }
+    
+    useEffect(()=>{
+        axios.get(`http://localhost:4000/getCourseContent/${id}`,{
+            headers: {
+                       "Content-Type": 'application/json',
+                     }
+        }).then((response)=>{
+            setSectionData(response.data.dataAll);
+            setMainPanelSrc(response.data.dataAll.LectureVideo.secure_url)
+            setMainPanelVNo(response.data.dataAll.LectureNo)
+            setMainPanelTitle(response.data.dataAll.VideoName)
+            setCourseData(response.data.result)
+        }).catch((error)=>{
+              console.log(error);
+        })
+    },[])
+
+    const changeUrl = (sec,lec)=>{
+        for(let i=0;i<sectionData.length;i++){
+            if(sectionData[i].SectionNo === sec){
+                if(sectionData[i].LectureNo === lec){
+                    setMainPanelSrc(sectionData[i].LectureVideo.secure_url);
+                    setMainPanelTitle(sectionData[i].VideoName)
+                    setMainPanelVNo(sectionData.LectureNo)
+                }
+            }
+        }
+    }
+    
+    var secNo = 1;
 
     return (
     <div className='videoCourse'>
-        {changeVid()}
         <div className="videoCourseHeading">
-                Lorem, ipsum dolor sit
+                {
+                    courseData.CourseTitle
+                }
         </div>
         <div className="courseVideos">
             <div className="videoMainPanel">
                 <div className="videoMainPanelItem">
-                <ReactPlayer
-						controls={true}
-                        className= "video"
-						url="https://res.cloudinary.com/dkmj6cid2/video/upload/v1648961543/videos/production_ID_5190550_qhnkiu.mp4" 
-						width="100%"
-						height="100%"
-					/>
-                    {/* <video className='video' src="https://youtu.be/xcJtL7QggTI" controls muted autoPlay></video> */}
+                <VideoPalyer
+                src={mainPanelSrc}
+                width="720"
+                height="420"
+                />
                     <div className="videoMainPanelTitle">
-                        01. video goes title here
+                        {mainPanelVNo+".  "+mainPanelTitle}
                     </div>
                 </div>
             </div>
             <div className="videoListPanel">
-                <div className="videoListPanelItem active" onClick={()=>{
-                    setId("PqToYlWo6p8")
-                }} >
-                    <ReactPlayer
-                        muted
-                        className= "vid"
-						url="https://res.cloudinary.com/dkmj6cid2/video/upload/v1648961543/videos/production_ID_5190550_qhnkiu.mp4" 
-					/>
-                    <div className="videoTitle">
-                        01. video goes title here
-                    </div>
-                </div>
-                <div className="videoListPanelItem" onClick={()=>{
-                    setId("9xwazD5SyVg")
-                }} >
-                <img src="https://res.cloudinary.com/dkmj6cid2/video/upload/v1648961543/videos/production_ID_5190550_qhnkiu.mp4" alt=""/>
-                    <div className="videoTitle">
-                        02. video goes title here
-                    </div>
-                </div>
-                <div className="videoListPanelItem" onClick={()=>{
-                    setId("9xwazD5SyVg")
-                }} >
-                    <img src="https://res.cloudinary.com/dkmj6cid2/video/upload/v1648961543/videos/production_ID_5190550_qhnkiu.mp4" alt=""/>
-                    <div className="videoTitle">
-                        03. video goes title here
-                    </div>
-                </div>
-                <div className="videoListPanelItem" onClick={()=>{
-                    setId("PqToYlWo6p8")
-                }} >
-                    <img src={`https://img.youtube.com/vi/${id}/default.jpg`} alt=""/>
-                    <div className="videoTitle">
-                        04. video goes title here
-                    </div>
-                </div>
-                <div className="videoListPanelItem" onClick={()=>{
-                    setId("PqToYlWo6p8")
-                }}>
-                    <img src={`https://img.youtube.com/vi/${id}/default.jpg`} alt=""/>
-                    <div className="videoTitle">
-                        05. video goes title here
-                    </div>
-                </div>
-                <div className="videoListPanelItem" onClick={()=>{
-                    setId("PqToYlWo6p8")
-                }}>
-                    <img src={`https://img.youtube.com/vi/${id}/default.jpg`} alt="" />
-                    <div className="videoTitle">
-                        06. video goes title here
-                    </div>
-                </div>
-                <div className="videoListPanelItem" onClick={()=>{
-                    setId("PqToYlWo6p8")
-                }}>
-                    <img src={`https://img.youtube.com/vi/${id}/default.jpg`} alt=""/>
-                    <div className="videoTitle">
-                        07. video goes title here
-                    </div>
-                </div>
-                <div className="videoListPanelItem" onClick={()=>{
-                    setId("PqToYlWo6p8")
-                }}>
-                    <img src={`https://img.youtube.com/vi/${id}/default.jpg`} alt=""/>
-                    <div className="videoTitle">
-                        08. video goes title here
-                    </div>
-                </div>
-                <div className="videoListPanelItem" onClick={()=>{
-                    setId("PqToYlWo6p8")
-                }}>
-                    <img src={`https://img.youtube.com/vi/${id}/default.jpg`} alt=""/>
-                    <div className="videoTitle">
-                        09. video goes title here
-                    </div>
-                </div>
+                    {
+                        
+                        sectionData.map((lecture, index) => (
+                            <div className='videoListPanelItem'>
+                                {
+                                    secNo===lecture.SectionNo && <button className={`videoSectionTitle ${index}`} onClick={(e)=>showDropDown(index)} >
+                                        {
+                                            lecture.SectionNo+".  "+lecture.SectionName
+                                        }
+                                        <label style={{display:"none"}}>{secNo+=1}</label>
+                                        <i class="videoSectionIcon fa-solid fa-sort-down"></i></button>
+                                } 
+                                    <div className='subVideo' style={{display:"none"}}>
+                                        {
+                                            sectionData.map((lec,i)=>(
+                                                secNo-1 === lec.SectionNo &&
+                                                <div className={`videoLectureTitle ${index}`} onClick={changeUrl(lecture.SectionNo,lec.LectureNo)}s>
+                                                {
+                                                    lec.VideoName
+                                                }
+                                            </div>
+                                            ))
+                                        } 
+                                    </div>  
+                            </div>
+                        ))
+                    }
             </div> 
         </div>
     </div>

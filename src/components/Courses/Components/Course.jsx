@@ -1,10 +1,13 @@
+import { useState } from 'react';
+import { useEffect } from 'react';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Course.css';
 
 const stars = (rating) => {
     const starList = []
     for (let i = 0; i < parseInt(rating); i++) {
-        console.log("hello");
         starList.push(<i className="courseFilledStar fa-solid fa-star"></i>)
     }
     if(rating-parseInt(rating)>0){
@@ -13,19 +16,27 @@ const stars = (rating) => {
     return starList
 }
 
-export default function course() {
+export default function Course({courseId,courseTitle, authorName, createdAt, coursePrice, courseImage}) {
+
     const rating = 4.3;
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+    
+    const d = new Date(createdAt) 
+    
     return (
+        
         <div className='course'>
-            <img className="courseImg" src="https://www.tacthub.in/user-panel/img/subject_thumb/data-science-course-840x450.jpg" alt=""/>
+            <Link to={`/courses/${courseId}`} className="link">
+            <img className="courseImg" src={courseImage} alt=""/>
             <div className="courseTitle">
-                Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur
+                {courseTitle}
             </div>
             <div className="courseAuthor">
-                Smit Ghelani
+                {authorName}
             </div>
             <div className="courseReleseTime">
-                23 July 2021
+                {d.getDate()+" "+months[d.getMonth()]+" "+d.getFullYear()}
             </div>
             <div className="courseRating">
                 <div className="courseRatingPoint">
@@ -39,8 +50,9 @@ export default function course() {
                 </div>
             </div>
             <div className="coursePrice">
-            &#8377;230
+            &#8377;{coursePrice}
             </div>
+            </Link>
         </div>
     )
 }

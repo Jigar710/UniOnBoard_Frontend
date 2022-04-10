@@ -12,6 +12,8 @@ import Register from "./components/signUp/Register";
 import ActivationEmail from "./components/Login/ActivationEmail";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword"
 import ResetPassword from "./components/forgotPassword/ResetPassword"
+import SingleCourse from "./components/Courses/Components/SingleCourse";
+import LandingPage from "./components/Courses/Components/LandingPage";
 
 const Routes = () => {
 
@@ -32,6 +34,12 @@ const Routes = () => {
                 {
                     path: '/Courses',
                     element: <Courses />
+                },{
+                    path:'/courses/:id',
+                    element:<LandingPage />
+                },{
+                    path:'/courses/watchCourse/:id',
+                    element:<SingleCourse />
                 },
                 {
                     path: '/getAllBlog',
