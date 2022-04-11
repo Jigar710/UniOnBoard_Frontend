@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import Upload from '../Courses/Components/Upload';
 // import { BrowserRouter } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import './DashboardMain.css';
@@ -13,6 +14,7 @@ function DashboardMain() {
   const [up,setUp] = useState(false);
   const [changePwd,setChangePwd] = useState(false);
   const [reqFac,setReqFac] = useState(false);
+  const [addCourse, setAddCourse] = useState(false);
 
   const handleUpdateProfile = () =>{
     setUp(true);
@@ -38,6 +40,13 @@ function DashboardMain() {
     setUp(false);
     setChangePwd(false)
   }
+  const handleAddCourse=()=>{
+    setAddCourse(true)
+    setHome(false);
+    setUp(false);
+    setReqFac(false);
+    setChangePwd(false)
+  }
   return (
    <>
    {/* <h1>Dashboard</h1> */}
@@ -60,6 +69,9 @@ function DashboardMain() {
       <li className="nav-link sidemenu" onClick={handleReqFac}>
       Requested Faculties
       </li>
+      <li className="nav-link sidemenu" onClick={handleAddCourse}>
+        Add Your Course
+      </li>
       </ul>
 
   </div>
@@ -74,6 +86,7 @@ function DashboardMain() {
 {(up) ? <UpdateProfile /> : ""}
 {(changePwd) ? <ChangePassword /> : ""}
 {(reqFac) ? <ReqFaculties /> : ""}
+{(addCourse) ? <Upload /> : ""}
 </main>
 </div>
 

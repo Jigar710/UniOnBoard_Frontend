@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     width:100%;
+    align-items: center;
 }
 
 .courseOverview{
@@ -13,14 +14,16 @@
     margin: 30px;
     padding: 30px;
     height:100%;
-    box-shadow: 2px 2px 5px 5px rgb(210, 210, 210);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 3px rgb(210, 210, 210);
 }
 
 .panelHeader{
     text-align: center;
     font-weight: 900;
     font-size: 26px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    font-family: 'Poppins', sans-serif;
 }
 
 .courseTitlePanel, .courseCategory, .coursePrerequisite, .targetAudience, .courseCaption{
@@ -29,16 +32,17 @@
     margin-left: 15%;
     width: 100%;
     margin: 10px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .questionLabel{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 100%;
 }
 
 .answerField{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    font-family: 'Poppins', sans-serif;
     border-width: 2px;
     align-items: center;
     justify-content: center;
@@ -51,14 +55,15 @@
     margin: 30px;
     padding: 30px;
     height:100%;
-    box-shadow: 2px 2px 5px 5px rgb(210, 210, 210);
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px 3px rgb(210, 210, 210);
 }
 
 .panelHeader{
     text-align: center;
     font-weight: 900;
     font-size: 26px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .Section{
@@ -67,11 +72,12 @@
     padding: 10px;
     padding-right: 30px;
     margin: 10px;
+    border-radius: 10px;
 }
 
 .Lecture{
     width:95%;
-    box-shadow: 2px 2px 5px 5px rgb(216, 216, 216);
+    box-shadow: 1px 1px 3px 3px rgb(216, 216, 216);
     padding: 10px;
     padding-right: 50px;
     margin-top: 20px;
@@ -86,16 +92,17 @@
     margin-left: 15%;
     width: 100%;
     margin: 10px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .courseSectionNameLabel, .courseLectureNameLabel, .courseResourceLabel, .courseLectureDescLabel {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    font-family: 'Poppins', sans-serif;
     width: 100%;
 }
 
 .courseLectureNameInput, .courseSectionNameInput{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     border-width: 2px;
     align-items: center;
     justify-content: center;
@@ -103,7 +110,7 @@
 }
 
 .courseLectureDescInput{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     height: 30px;
     resize: none;
     border-radius: 0%;
@@ -114,12 +121,12 @@
     height: 40px;
     text-align: center;
     align-items: center;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     padding: auto;
     color: white;
     background-color: black;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 5px;
@@ -127,14 +134,16 @@
 
 .courseVideoUpload{
     font-size: 50px;
-    box-shadow: 1px 1px 1px 1px black;
-    color: rgb(213, 213, 213);
+    box-shadow: 0.4px .4px 1px 1px rgb(0, 0, 0);
+    color: rgb(30, 110, 180);
+    border-radius: 5px;
     text-align: center;
     cursor: pointer;
 }
 
 .landingPageForm{
     display: flex;
+    border-radius: 20px;
     flex-direction: column;
     align-items:center;
     justify-content: center;
@@ -150,17 +159,17 @@
     margin-left: 15%;
     width: 100%;
     margin: 10px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .landingPageTitleLabel, .landingPageSubTitleLabel, .courseLanguageLabel, .courseDifficultyLabel, .landingPageCategoryLabel, .courseImageLabel, .coursePriceLabel,.landingPageLearningLabel, .coursePromoLabel, .courseCouponLabel, .landingPageDescLabel{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 100%;
     text-align: left;
 }
 
 .landingPageTitleInput, .landingPageSubTitleInput, .landingPageDescInput, .courseLanguageInput, .courseDifficultyInput, .landingPageCategoryInput, .landingPageLearningInput, .coursePriceInput ,.courseCouponInput{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     border-width: 2px;
     align-items: center;
     justify-content: center;
@@ -168,7 +177,7 @@
 }
 
 .landingPageDescInput{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     height: 30px;
     resize: none;
     border-radius: 0%;
@@ -177,8 +186,9 @@
 
 .courseImageUpload, .coursePromoUpload{
     font-size: 50px;
-    box-shadow: 1px 1px 1px 1px black;
-    color: rgb(213, 213, 213);
+    box-shadow: .4px .4px 1px 1px black;
+    border-radius: 5px;
+    color: rgb(81, 126, 171);
     text-align: center;
 }
 
@@ -198,14 +208,26 @@
     cursor: pointer;
 }
 
-.messagePanel, .courseMode{
+.messagePanel{
     display: flex;
     flex-direction: column;
     align-items:center;
     justify-content: center;
     margin: 30px;
+    border-radius: 10px;
     padding: 30px;
-    height:100%;
+    box-shadow: 2px 2px 5px 5px rgb(210, 210, 210);
+}
+
+.courseMode{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    margin: 30px;
+    border-radius: 10px;
+    padding: 30px;
+    height: 420px;
     box-shadow: 2px 2px 5px 5px rgb(210, 210, 210);
 }
 
@@ -215,26 +237,28 @@
     margin-left: 15%;
     width: 100%;
     margin: 10px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .messagePanelWelomeLabel, .messagePanelCongoLabel, .courseModeLabel{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 100%;
     text-align: left;
 }
 
 .courseModeInput{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     border-width: 2px;
     align-items: center;
     justify-content: center;
+    margin-bottom: 80px;
+    width:100%;
     height: 35px;
 }
 
 .messagePanelCongoText, .messagePanelWelcomeText{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    height: 30px;
+    font-family: 'Poppins', sans-serif;
+    height: 120px;
     resize: none;
     border-radius: 0%;
     font-size: 16px;
@@ -253,12 +277,12 @@
     height: 40px;
     text-align: center;
     align-items: center;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     padding: auto;
     color: white;
     background-color: black;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px;
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 5px;
@@ -294,7 +318,7 @@
 }
 
 .resourceLabel{
-    color: rgb(213, 213, 213);
+    color: rgb(73, 99, 177);
     font-size: 30px;
     margin: 10px;
 }

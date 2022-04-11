@@ -6,7 +6,7 @@ import SingleCourse from './Components/SingleCourse';
 import Upload from './Components/Upload';
 import LandingPage from './Components/LandingPage';
 import { useParams } from 'react-router-dom';
-import './Courses.css';
+// import './Courses.css';
 
 export default function Courses() {
   const courseId = useParams()
@@ -24,9 +24,10 @@ export default function Courses() {
   return (
     <div className='courses'>
       {
-        courseDataList.map((course,index)=>(
-          <Course courseId={course.dataOne._id} courseTitle={course.dataOne.CourseTitle} authorName={course.dataThree.name} createdAt={course.dataOne.createdAt} coursePrice={course.dataTwo.Pricing} courseImage={course.dataTwo.CourseImg.secure_url} />
-        ))
+        // courseDataList.map((course,index)=>(
+        //   <Course courseId={course.dataOne._id} courseTitle={course.dataOne.CourseTitle} authorName={course.dataThree.name} createdAt={course.dataOne.createdAt} coursePrice={course.dataTwo.Pricing} courseImage={course.dataTwo.CourseImg.secure_url} />
+        // ))
+        <Upload />
       }
     </div>
   )
