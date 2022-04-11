@@ -21,24 +21,28 @@ function DashboardMain() {
     setHome(false);
     setChangePwd(false)
     setReqFac(false);
+    setAddCourse(false)
   }
   const handleHome = () =>{
     setHome(true);
     setUp(false);
     setChangePwd(false)
     setReqFac(false);
+    setAddCourse(false)
   }
   const handleChangePassword = () =>{
     setChangePwd(true)
     setHome(false);
     setUp(false);
     setReqFac(false);
+    setAddCourse(false)  
   }
   const handleReqFac = () =>{
     setReqFac(true);
     setHome(false);
     setUp(false);
     setChangePwd(false)
+    setAddCourse(false)
   }
   const handleAddCourse=()=>{
     setAddCourse(true)
