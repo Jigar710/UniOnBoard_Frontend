@@ -1,24 +1,33 @@
-import React from "react";
-import ReactPlayer from "react-player";
-import "./Courses.css";
-function Courses() {
-	return (
-		<>
-        <h1 style={{textAlign:"center", marginTop:"15px"}}>Courses</h1>
-			{/* <div className="container">
-				<div className="player-wrapper">
-					<ReactPlayer
-						controls
-						className="react-player"
-						//   https://youtu.be/PqToYlWo6p8
-						url="https://www.youtube.com/watch?v=PqToYlWo6p8"
-						width="95%"
-						height="95%"
-					/>
-				</div>
-			</div> */}
-		</>
-	);
-}
+import React from 'react';
+import Course from './Components/Course';
+import axios from 'axios';
+import {useState, useEffect} from 'react';
+import SingleCourse from './Components/SingleCourse';
+import Upload from './Components/Upload';
+import LandingPage from './Components/LandingPage';
+import { useParams } from 'react-router-dom';
+import './Courses.css';
 
-export default Courses;
+export default function Courses() {
+  const courseId = useParams()
+  const [courseDataList, setCourseDataList] = useState([]);
+
+  useEffect(()=>{
+    axios.get(
+        "http://localhost:4000/getCourses"
+    ).then((response)=>{
+        setCourseDataList(response.data.allCourse);
+
+    }).catch((error)=>{
+        console.log(error);
+  })},[])
+  return (
+    <div className='courses'>
+      {
+        courseDataList.map((course,index)=>(
+          <Course courseId={course.dataOne._id} courseTitle={course.dataOne.CourseTitle} authorName={course.dataThree.name} createdAt={course.dataOne.createdAt} coursePrice={course.dataTwo.Pricing} courseImage={course.dataTwo.CourseImg.secure_url} />
+        ))
+      }
+    </div>
+  )
+}

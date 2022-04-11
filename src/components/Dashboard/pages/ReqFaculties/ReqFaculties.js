@@ -70,7 +70,13 @@ const ReqFaculties = () => {
 	useEffect(() => {
 		//admin/getRequestedFaculties
 		axios
-			.get("http://localhost:4000/admin/getRequestedFaculties")
+			.get("http://localhost:4000/admin/getRequestedFaculties",{
+				headers: {
+						   Accept: "application/json",
+						   "Content-Type": 'application/json',
+						 },
+						 withCredentials: true
+			  })
 			.then((response) => {
 				console.log(response.data.faculties);
 				setReqFac0(response.data.faculties);
