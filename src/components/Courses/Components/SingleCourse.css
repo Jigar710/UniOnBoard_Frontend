@@ -180,3 +180,20 @@
 .subVideo{
     width: 100%;
 }
+
+.staticTitleSC{
+    color: black;
+    font-size: 23px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 25px;
+    line-height: 30px;
+}
+.descContent{
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 15px;
+    line-height: 30px;
+    text-align: justify; 
+    font-weight: 350;
+}

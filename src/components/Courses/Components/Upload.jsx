@@ -379,7 +379,7 @@ export default function Upload() {
               <label className='courseLanguageLabel'>Language<i className="requiredIcon fa-solid fa-circle-question"><span class="tooltiptext">Reuired !!</span></i></label>
               <select className='courseLanguageInput' label="Language" id="courseLanguage" value={values["courseLanguage"]} onChange={(e) => {
                 fieldChanged("courseLanguage", e.target.value);
-              }} defaultValue="English" >
+              }} defaultValue="None" >
                 {
                   language.map(
                     (data) => (<option value={data} >{data}</option>)
@@ -391,7 +391,7 @@ export default function Upload() {
               <label className='courseDifficultyLabel'>Difficulty Level<i className="requiredIcon fa-solid fa-circle-question"><span class="tooltiptext">Reuired !!</span></i></label>
               <select className='courseDifficultyInput' label="Difficulty" id="courseDifficulty" value={values["courseDifficulty"]} onChange={(e) => {
                 fieldChanged("courseDifficulty", e.target.value);
-              }} defaultValue="Mixed" >
+              }} defaultValue="None" >
                 {
                   difficulty.map(
                     (data) => (<option value={data} >{data}</option>)
@@ -538,7 +538,7 @@ export default function Upload() {
           }
         return page;
       };
-      setPage(findNextPage((direction === "next") ? (validate(page) ? page+1: page) : (validate(page) ? page - 1: page)));
+      setPage(findNextPage(direction === "next" ? page + 1 : page - 1));
   };
 
   const nextPage = navigatePages("next");

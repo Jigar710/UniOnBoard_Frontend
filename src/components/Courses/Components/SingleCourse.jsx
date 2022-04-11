@@ -36,9 +36,11 @@ export default function SingleCourse() {
     useEffect(()=>{
         axios.get(`http://localhost:4000/getCourseContent/${id}`,{
             headers: {
+                       Accept: "application/json",
                        "Content-Type": 'application/json',
-                     }
-        }).then((response)=>{
+                     },
+                     withCredentials: true
+          }).then((response)=>{
             // console.log(response)
             setSectionData(response.data.dataAll);
             setCourseData(response.data.result);
@@ -81,6 +83,14 @@ export default function SingleCourse() {
                     <div className="videoMainPanelTitle">
                         {mainPanelVNo+".  "+mainPanelTitle}
                     </div>
+                    <div className="videoMainPanelDesc">
+                        <div className="staticTitleSC">Description</div>
+                        <div className="descContent">
+                            {
+                                mainPanelDesc
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="videoListPanel">
@@ -94,7 +104,7 @@ export default function SingleCourse() {
                                             lecture.SectionNo+".  "+lecture.SectionName
                                         }
                                         <label style={{display:"none"}}>{secNo+=1}</label>
-                                        <i class="videoSectionIcon fa-solid fa-sort-down"></i></button>
+                                        <i className="videoSectionIcon fa-solid fa-sort-down"></i></button>
                                 } 
                                     <div className='subVideo' style={{display:"none"}}>
                                         {
