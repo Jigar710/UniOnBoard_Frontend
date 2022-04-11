@@ -18,6 +18,8 @@ import ResetPassword from "./components/forgotPassword/ResetPassword"
 import Dashboard from "./components/Dashboard/DashboardMain";
 import DashboardHome from "./components/Dashboard/pages/DashboardHome/DashboardHome";
 import Coachingdeta from "./components/Choaching/Coachingdeta";
+import LandingPage from "./components/Courses/Components/LandingPage";
+import SingleCourse from "./components/Courses/Components/SingleCourse";
 
 const Routes = () => {
 
@@ -38,6 +40,12 @@ const Routes = () => {
                 {
                     path: '/Courses',
                     element: <Courses />
+                },{
+                    path:'/courses/:id',
+                    element:<LandingPage />
+                },{
+                    path:'/courses/watchCourse/:id',
+                    element:<SingleCourse />
                 },
                 {
                     path: '/getAllBlog',

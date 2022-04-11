@@ -1,0 +1,184 @@
+
+
+.videoCourse{
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.courseVideos{
+    display: flex;
+    flex-direction: row;
+}
+
+.videoCourseHeading{
+    color: #444;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+}
+
+.videoListPanelItem{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    align-items: flex-start;
+    padding: 5px 5%;
+}
+
+
+
+.videoMainPanel{
+    flex: 7;
+    margin-left: 150px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.videoMainPanel .videoMainPanelItem .video{
+    width:100%;
+    height:320px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.videoMainPanel .videoMainPanelItem .videoMainPanelTitle{
+    color: #333;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.videoListPanel{
+    flex: 4;
+    background: #fff;
+    margin-right: 150px;
+    border-radius: 5px;
+    height: 520px;
+    overflow-y: scroll;
+
+}
+
+.videoListPanel ::-webkit-scrollbar{
+    width: 2px;
+}
+
+.videoListPanel ::-webkit-scrollbar-track{
+    background: #ccc;
+    border-radius: 50px;
+}
+
+.videoListPanel ::-webkit-scrollbar-thumb{
+    background: #666;
+    border-radius: 50px;
+}
+
+.videoListPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.1);
+    cursor: pointer;
+}
+
+.videoListPanelItem{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    align-items: center;
+    gap: 15px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.videoListPanel .videoListPanelItem:hover{
+    background: #eee;
+}
+
+.videoListPanel .videoListPanelItem.active{
+    background: #2980b9;
+}
+
+.videoListPanel .videoListPanelItem.active .videoSectionTitle{
+    color: #fff;
+}
+
+.videoListPanel .videoListPanelItem .videoSectionTitle{
+    color: #333;
+    font-size: 17px;
+}
+
+.videoSectionTitle{
+    background-color: rgb(255, 252, 245);
+    font-size: 20px;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: left;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+}
+
+.videoLectureTitle{
+    background-color: rgb(255, 252, 245);
+    font-size: 20px;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-shadow:0.5px 0.5px 1px 1px black;
+    padding: 10px;
+    text-align: left;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+}
+
+.videoSectionIcon{
+    color: black;
+    width: 100%;
+    font-size: 20px;
+    padding-right: 30px;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+}
+
+@media (max-width:991px){
+    .videoListPanelItem{
+        grid-template-columns: 1.5fr 1fr;
+        padding: 10px;
+    }
+}
+
+@media (max-width:768px){
+    .videoListPanelItem{
+        grid-template-columns: 1fr;
+    }
+}
+
+.video-js .vjs-big-play-button{
+    background-color: tomato !important;
+    height: 50px;
+    width:50px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-color: tomato;
+    border-radius: 50%;
+}
+
+.subVideo{
+    width: 100%;
+}
