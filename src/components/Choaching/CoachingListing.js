@@ -35,6 +35,8 @@ const CoachingListing = () => {
 	// console.log(toggle);
 	const [menuItems, setMenuItems] = useState([]);
 	// setMenuItems([...new Set(iDetails.map((Val) => Val.city))]);
+	const [exam,setexams]=useState([]);
+
 	const filterCity = (Val) => {
 		if (curcat.includes(Val)) {
 			const index = curcat.indexOf(Val);
@@ -57,6 +59,27 @@ const CoachingListing = () => {
 		setIDetails(newItem);
 	};
 
+const filterexam=(Values)=>{
+	if (curcat.includes(Values)) {
+		const index = curcat.indexOf(Values);
+		if (index > -1) {
+			curcat.splice(index, 1);
+		}
+		console.log("cat", curcat);
+		if (curcat.length === 0) {
+			return setIDetails(allI);
+		}
+	} else {
+		curcat.push(Values);
+		console.log("add", curcat);
+	}
+
+	const newItem = allI.filter((newVal) => {
+		// return newVal.city === curcat;
+		return curcat.includes(newVal.acceptedExam);
+	});
+	setIDetails(newItem);
+}
 	const filterFee = () => {
 		if (curcat.length === 0) {
 			const newItem = allI.filter((newVal) => {
@@ -87,6 +110,9 @@ const CoachingListing = () => {
 			setAllI(response.data.institutes);
 			setMenuItems([
 				...new Set(response.data.institutes.map((Val) => Val.city)),
+			]);
+			setexams([
+				...new Set(response.data.institutes.map((Values) => Values.acceptedExam)),
 			]);
 		});
 	}, []);
@@ -240,63 +266,46 @@ const CoachingListing = () => {
 									<h5
 										style={{ marginTop: "18px", fontWeight: "bold" }}
 									>
-										Rating
+										Accepted Exams
 									</h5>
 									<ListGroup.Item>
-										<Form.Check
+										{/* <Form.Check
 											className="labeltag"
 											type="checkbox"
 											label=""
 										/>{" "}
-										<label className="label-main">
-											<StarRateIcon />
-											<StarRateIcon />
-											<StarRateIcon />
-											<StarRateIcon />
-											<StarRateIcon />
-										</label>
+										
 										<br />
 										<Form.Check
 											className="labeltag"
 											type="checkbox"
 											label=""
 										/>{" "}
-										<label className="label-main">
-											<StarRateIcon />
-											<StarRateIcon />
-											<StarRateIcon />
-											<StarRateIcon />
-										</label>
-										<br />
-										<Form.Check
-											className="labeltag"
-											type="checkbox"
-											label=""
-										/>{" "}
-										<label className="label-main">
-											<StarRateIcon />
-											<StarRateIcon />
-											<StarRateIcon />
-										</label>
-										<br />
-										<Form.Check
-											className="labeltag"
-											type="checkbox"
-											label=""
-										/>{" "}
-										<label className="label-main">
-											<StarRateIcon />
-											<StarRateIcon />
-										</label>
-										<br />
-										<Form.Check
-											className="labeltag"
-											type="checkbox"
-											label=""
-										/>{" "}
-										<label className="label-main">
-											<StarRateIcon />
-										</label>
+										
+										<br /> */}
+										
+									
+										{exam.map((Values, id) => {
+											return (
+												<>
+													<Form.Check
+														type="checkbox"
+														label={Values}
+														value={Values}
+														onChange={() => filterexam(Values)}
+													/>
+													{/* <input
+														type="checkbox"
+														id={id}
+														name={Val}
+														value={Val}
+														onChange={() => filterItem(Val)}
+													/>
+													<label for="vehicle1" style={{float:"left"}}> {Val}</label> */}
+												</>
+											);
+										})}
+										
 									</ListGroup.Item>
 								</ListGroup>
 							</Form>
