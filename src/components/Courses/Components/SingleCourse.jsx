@@ -95,7 +95,6 @@ export default function SingleCourse() {
             </div>
             <div className="videoListPanel">
                     {
-                        
                         sectionData.map((lecture, index) => (
                             <div className='videoListPanelItem'>
                                 {
