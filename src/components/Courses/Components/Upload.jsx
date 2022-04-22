@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './Upload.css';
 import axios from 'axios';
 import { fontSize } from '@mui/system';
+import LoadingOverlay from 'react-loading-overlay-ts';
 
 
 export default function Upload() {
@@ -10,7 +11,10 @@ export default function Upload() {
   const [values, setValues] = useState({})
   const [sectionField, setSectionField] = useState([{SectionName:"",lectureNo:1}]);
   const [courseData,setCourseData] = useState({}) 
-  
+  const [isActive,setIsActive] = useState(false) 
+  const [courseExist, setCourseExist] = useState(false)
+  const [sectionExist, setSectionExist] = useState(false)
+  const [landingPageExist, setLandingPageExist] = useState(false)
 
 
   const handleSectionAdd = () => {
@@ -26,24 +30,24 @@ export default function Upload() {
   }
 
   const validate = (page) =>{
-    if(page === 1){
-      if(!values["courseTitle"]){
-        alert("Course Title is required please make sure it's not empty")
-        return false
+      if(page === 1){
+        if(!values["courseTitle"]){
+          alert("Course Title is required please make sure it's not empty")
+          return false
+        }
+        else if(!values["courseCategory"]){
+          alert("Course Learning is required please make sure it's not empty")
+          return false
+        }
+        else if(!values["targetAudience"]){
+          alert("Target audience for the course is required please make sure it's not empty")
+          return false
+        }
+        else{
+          return true
+        }
       }
-      else if(!values["courseCategory"]){
-        alert("Course Learning is required please make sure it's not empty")
-        return false
-      }
-      else if(!values["targetAudience"]){
-        alert("Target audience for the course is required please make sure it's not empty")
-        return false
-      }
-      else{
-        return true
-      }
-    }
-    if(page === 2){
+      if(page === 2){
       for(let i=0;i<sectionField.length; i++){
           if(!values[`sectionName${i}`]){
             alert(`Please give name to the section no ${i}`);
@@ -98,7 +102,7 @@ export default function Upload() {
         else if(!values["coursePrice"]){
           alert("Please write price of your course else write 0")
           return false
-        }else if(NaN(values["coursePrice"])){
+        }else if(isNaN(values["coursePrice"])){
           alert("Please write numeric value for course price")
           return false
         }
@@ -133,27 +137,58 @@ export default function Upload() {
   
   const onSubmit = async (e) => {
     if(validate(page)){
+      setIsActive(true);
+
       e.preventDefault();
       
-      await axios.post("http://localhost:4000/addCourseOverview",{
-          "CourseTitle":values["courseTitle"],
-          "CourseLearning":values["courseCategory"],
-          "CoursePrerequisite":values["coursePrerequisite"],
-          "CourseAudience":values["targetAudience"],
-          "LectureCaption":values["courseCaption"],
-          "AuthorId":"62375f676b19971065ec5135"
-      })
-      .then((response)=>{
-        setCourseData(response.data.result)
-      })
-      .catch((error)=>{
-          console.log(error)
-      })
+      const formdata = new FormData();
+      formdata.append("CourseTitle",values["courseTitle"]);
+      formdata.append("CourseLearning",values["courseCategory"]);
+      formdata.append("CoursePrerequisite",values["coursePrerequisite"]);
+      formdata.append("CourseAudience",values["targetAudience"]);
+      formdata.append("LectureCaption",values["courseCaption"]);
+
+      var coursePage = undefined;
+
+      try {
+        coursePage = await axios({
+          url: "http://localhost:4000/addCourseOverview",
+          method: 'POST',
+          Headers: {
+              'content-Type': 'multipart/form-data',
+          },
+          withCredentials: true,data:formdata
+        })
+        
+      } catch (err) {
+        setIsActive(false)
+          console.log(err)
+          alert("Unwanted error is discovered")
+          return
+      }
       
+      if(coursePage){
+        setCourseData(coursePage.data.result)
+        setCourseExist(true)
+        setIsActive(false)
+      }
+
+      await addSections(e);
+      await addLandingPage(e);
+    }
+  }
+  
+  const addSections = async(e)=>{
+    if(courseExist && validate(page) && courseData){
+      setIsActive(true)
+      e.preventDefault();
+
+      var fd = new FormData();
+      var response = undefined;
 
       for(let i=0;i<sectionField.length;i++){
         for(let j=0; j<sectionField[i].lectureNo;j++){
-          const fd = new FormData();
+          fd = new FormData();    
           fd.append("CourseId",courseData._id);
           fd.append("SectionNo",parseInt(i)+1);
           fd.append("SectionName",values[`sectionName${i}`]);
@@ -165,7 +200,7 @@ export default function Upload() {
           fd.append("LectureResourceFile",values[`lectureResource${i}${j}`]);
 
           try {
-            const response = await axios({
+             response = await axios({
               url: 'http://localhost:4000/addSectionContent',
               method: 'POST',
               Headers: {
@@ -175,43 +210,72 @@ export default function Upload() {
             })
             
           } catch (err) {
+            setIsActive(false)
             console.log(err)
+            alert("Unwanted error is discovered")
+            setPage(1)
+            return
           }
         }
       }
+      if(response){
+        console.log(response)
+        setSectionExist(true)
+        setIsActive(false)
+      }
     }
+  }
 
-    const formdata = new FormData();
-    formdata.append("CourseId",courseData._id);
-    formdata.append("CourseTitle",values["courseTitle"]);
-    formdata.append("CourseSubTitle",values["courseSubTitle"]);
-    formdata.append("CourseDesc",values["landingPageDesc"]);
-    formdata.append("CourseLanguage",values["courseLanguage"]);
-    formdata.append("DifficultyLevel",values["courseDifficulty"]);
-    formdata.append("CourseCategory",values["landingPageCategory"]);
-    formdata.append("CourseLearing",values["landingPageLearning"]);
-    formdata.append("Pricing",values["coursePrice"]);
-    formdata.append("CouponCode",values["courseCoupon"]);
-    formdata.append("WelcomeMessage",values["welcomeMessage"]);
-    formdata.append("CongoMessage",values["congoMessage"]);
-    formdata.append("Mode",values["courseMode"]);
-    formdata.append("CourseImg",values["courseImage"]);
-    formdata.append("CoursePromo",values["coursePromo"]);
+  const addLandingPage = async(e) =>{
+    if(sectionExist){
+      setIsActive(true)
+      e.preventDefault();
+      
+      const formdata = new FormData();
+      formdata.append("CourseId",courseData._id);
+      formdata.append("CourseTitle",values["courseTitle"]);
+      formdata.append("CourseSubTitle",values["courseSubTitle"]);
+      formdata.append("CourseDesc",values["landingPageDesc"]);
+      formdata.append("CourseLanguage",values["courseLanguage"]);
+      formdata.append("DifficultyLevel",values["courseDifficulty"]);
+      formdata.append("CourseCategory",values["landingPageCategory"]);
+      formdata.append("CourseLearing",values["landingPageLearning"]);
+      formdata.append("Pricing",values["coursePrice"]);
+      formdata.append("CouponCode",values["courseCoupon"]);
+      formdata.append("WelcomeMessage",values["welcomeMessage"]);
+      formdata.append("CongoMessage",values["congoMessage"]);
+      formdata.append("Mode",values["courseMode"]);
+      formdata.append("CourseImg",values["courseImage"]);
+      formdata.append("CoursePromo",values["coursePromo"]);
 
-        try {
-          const landingPage = await axios({
-            url: 'http://localhost:4000/addLandingPage',
-            method: 'POST',
-            Headers: {
-                'content-Type': 'multipart/form-data',
-            },
-            withCredentials: true,data:formdata
-          })
-          
-          alert("Course added successfuly")
-        } catch (err) {
-          console.log(err)
-        }
+      var landingPage = undefined;
+      try {
+        landingPage = await axios({
+          url: 'http://localhost:4000/addLandingPage',
+          method: 'POST',
+          Headers: {
+              'content-Type': 'multipart/form-data',
+          },
+          withCredentials: true,data:formdata
+        })
+        
+      } catch (err) {
+        setIsActive(false)
+        console.log(err)
+        alert("Unwanted error is discovered")
+        return
+      }
+      if(landingPage){
+        console.log(landingPage)
+        setLandingPageExist(true)
+        setIsActive(false)
+      }
+      if(landingPageExist){
+        setIsActive(false)
+        alert("Course added successfuly")
+        setPage(1)
+      }
+    }
   }
 
   const firstForm = ()=>{
@@ -252,7 +316,7 @@ export default function Upload() {
         <div className='formButton'>
           {page > 1 && <button className="formButtonbBack" onClick={prevPage}>Back</button>}&nbsp;
           {page < 5 && <button className='formButtonNext' onClick={nextPage}>Next</button>}
-          {page === 2 && <button className='formButtonSubmit' onClick={onSubmit}>Submit</button>}
+          {page === 5 && <button className='formButtonSubmit' onClick={onSubmit}>Submit</button>}
         </div>
     </div>);
   }
@@ -499,6 +563,7 @@ export default function Upload() {
           <div className='formButton'>
             {page > 1 && <button className="formButtonbBack" onClick={prevPage}>Back</button>}&nbsp;
             {page < 5 && <button className='formButtonNext' onClick={nextPage}>Next</button>}
+
             {page === 5 && <button className='formButtonSubmit' onClick={onSubmit}>Submit</button>}
           </div>
         </div>
@@ -538,7 +603,7 @@ export default function Upload() {
           }
         return page;
       };
-      setPage(findNextPage(direction === "next" ? page + 1 : page - 1));
+      setPage(findNextPage(direction === "next" ? (validate(page)? page + 1 : page) : page - 1));
   };
 
   const nextPage = navigatePages("next");
@@ -558,11 +623,17 @@ export default function Upload() {
   };
 
   return (
-    <div className='upload'>
-        {
-          executeForm(page)
-        }
-    </div>
+    <LoadingOverlay
+    active={isActive}
+    spinner
+    text='Uploading Course Please wait...'
+    >
+      <div className='upload'>
+          {
+            executeForm(page)
+          }
+      </div>
+    </LoadingOverlay>
   )
 }
 

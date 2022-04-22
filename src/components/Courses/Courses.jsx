@@ -7,6 +7,7 @@ import Upload from './Components/Upload';
 import LandingPage from './Components/LandingPage';
 import { useParams } from 'react-router-dom';
 import './Courses.css';
+import Loading from './Components/Loading';
 
 export default function Courses() {
   const courseId = useParams()
