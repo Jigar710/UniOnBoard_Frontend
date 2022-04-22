@@ -20,7 +20,9 @@ import DashboardHome from "./components/Dashboard/pages/DashboardHome/DashboardH
 import Coachingdeta from "./components/Choaching/Coachingdeta";
 import LandingPage from "./components/Courses/Components/LandingPage";
 import SingleCourse from "./components/Courses/Components/SingleCourse";
-
+import Explore from "./components/Explore/ExploreMain"
+import RankPredictor from "./components/Explore/RankPredictor/RankPredictor"
+import ClgRecommender from "./components/Explore/Recommender/ClgRecommender"
 const Routes = () => {
 
   
@@ -71,7 +73,18 @@ const Routes = () => {
                     path: '/CoachingDetailes/:id',
                     element: <Coachingdeta />
                 },
-            
+                {
+                    path: '/Explore',
+                    element: <Explore />
+                },
+                {
+                    path: '/RankPredictor',
+                    element: <RankPredictor />
+                },
+                {
+                    path: '/CollegeRecommender',
+                    element: <ClgRecommender/>
+                },
                 {
                     path: '/Dashboard',
                     element: <Dashboard />,

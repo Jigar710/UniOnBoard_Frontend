@@ -132,6 +132,7 @@ const Navbar = (props) => {
               <MenuItem >
                 <Link to="/"> Home</Link>
               </MenuItem>
+              
               <MenuItem >
                 <Link to="/coaching"> Coachings</Link>
               </MenuItem>
@@ -139,11 +140,15 @@ const Navbar = (props) => {
                 <Link to="/courses" onClick={() => setOpenModal(true)}> Courses</Link>
               </MenuItem>
               <MenuItem >
+                <Link to="/explore"> Explore </Link>
+              </MenuItem>
+              <MenuItem >
                 <Link to="/getAllBlog" onClick={() => setOpenModal(true)}> Blogs </Link>
               </MenuItem>
               <MenuItem >
                 <Link to="/contactus"> Contact Us </Link>
               </MenuItem>
+             
               <MenuItem >
                 <Link to="/Dashboard"> Dashboard </Link>
               </MenuItem>
@@ -171,6 +176,11 @@ const Navbar = (props) => {
               <div className="nav-item">
                 <Link to={token ? "/courses" : "/"} onClick={() => setOpenModal(token ? false : true)} className='contact' style={{color: "white"}}>
                   Courses
+                </Link>
+              </div>
+              <div className="nav-item" >
+                <Link to={token ? "/explore" : "/"} onClick={() => setOpenModal(token ? false : true)} className='contact' style={{color: "white"}}>
+                  Explore
                 </Link>
               </div>
               <div className="nav-item" >
