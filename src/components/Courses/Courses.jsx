@@ -26,7 +26,20 @@ export default function Courses() {
     <div className='courses'>
       {
         courseDataList.map((course,index)=>(
-          <Course courseId={course.dataOne._id} courseTitle={course.dataOne.CourseTitle} authorName={course.dataThree.name} createdAt={course.dataOne.createdAt} coursePrice={course.dataTwo.Pricing} courseImage={course.dataTwo.CourseImg.secure_url} />
+          <Course 
+          courseId={course.dataOne._id} 
+          courseTitle={course.dataOne.CourseTitle}
+          createdAt={course.dataOne.createdAt} 
+          coursePrice={course.dataTwo.Pricing} 
+          courseImage={course.dataTwo.CourseImg.secure_url} 
+          language={course.dataTwo.CourseLanguage}
+          difficulty = {course.dataTwo.DifficultyLevel}
+          coursecategory = {course.dataTwo.CourseCategory[0]} 
+          authorName={course.dataThree.name} 
+          authorImg = {course.dataThree.photo.secure_url}
+          authorMail = {course.dataThree.email}
+          caption={course.dataOne.LectureCaption}
+           />
         ))
       }
     </div>

@@ -258,7 +258,6 @@ export default function Upload() {
           },
           withCredentials: true,data:formdata
         })
-        
       } catch (err) {
         setIsActive(false)
         console.log(err)
