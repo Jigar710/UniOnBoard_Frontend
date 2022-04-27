@@ -21,12 +21,9 @@ const Motive = () => {
             
             <Col  md={6} className="colsmall" >
             <div className='motivep'>
-                <p className='pt-4 mt-4 pb-4 mb-4 '>Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to
-                    make a type specimen book. It has survived not only five
-                centuries, but also the leap</p>
+                <p className='pt-4 mt-4 pb-4 mb-4 '>
+                Our motive is mainly use for college admission dilemma of engineering.we have mentions all the colleges of Gujarat and their all details related to admissions. we have blogs and courses part so from that students can read their blog and watch their courses.We have also one interesting part that Blog and courses only uploaded by faculty only right now.
+                </p>
                 </div>
             </Col>
      </Row>
