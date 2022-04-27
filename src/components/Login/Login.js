@@ -80,7 +80,7 @@ const Login = () => {
             //         <Link to="/forgot_password" style={{ display: 'flex', justifyContent: 'end' }}>Forgot your password?</Link>
             //     </div>
             // </form> */}
-            <div className="container titlelogo">SignUp</div>
+            <div className="container titlelogo">Login</div>
 			<div className="body1">
             <div class="main" style={{height:"auto"}}>
 				<input type="checkbox" id="chk" aria-hidden="true" />

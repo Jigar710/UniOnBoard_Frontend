@@ -256,3 +256,36 @@ hr{
 .link:hover, .link:active {
     text-decoration: none;
 }
+
+.updateDeleteBtn{
+    width:100%;
+    height:100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.updateBtnProfile{
+    width:100%;
+    background-color: rgb(57, 188, 114);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.deleteBtnProfile{
+    width: 100%;
+    margin: 10px;
+    margin-right: 20px;
+    background-color: rgb(255, 94, 94);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.updateBtnLink{
+    width:100%;
+    margin: 10px;
+    margin-left: 20px;
+    border-radius: 10px;
+}

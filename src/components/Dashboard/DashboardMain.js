@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Upload from '../Courses/Components/Upload';
+import UpdateandDelete from '../Courses/Components/UpdateandDelete';
 // import { BrowserRouter } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import './DashboardMain.css';
@@ -15,6 +16,7 @@ function DashboardMain() {
   const [changePwd,setChangePwd] = useState(false);
   const [reqFac,setReqFac] = useState(false);
   const [addCourse, setAddCourse] = useState(false);
+  const [updateCourse, setUpdateCourse] =useState(false)
 
   const handleUpdateProfile = () =>{
     setUp(true);
@@ -22,6 +24,7 @@ function DashboardMain() {
     setChangePwd(false)
     setReqFac(false);
     setAddCourse(false)
+    setUpdateCourse(false)
   }
   const handleHome = () =>{
     setHome(true);
@@ -29,6 +32,7 @@ function DashboardMain() {
     setChangePwd(false)
     setReqFac(false);
     setAddCourse(false)
+    setUpdateCourse(false)
   }
   const handleChangePassword = () =>{
     setChangePwd(true)
@@ -36,6 +40,7 @@ function DashboardMain() {
     setUp(false);
     setReqFac(false);
     setAddCourse(false)  
+    setUpdateCourse(false)
   }
   const handleReqFac = () =>{
     setReqFac(true);
@@ -43,6 +48,7 @@ function DashboardMain() {
     setUp(false);
     setChangePwd(false)
     setAddCourse(false)
+    setUpdateCourse(false)
   }
   const handleAddCourse=()=>{
     setAddCourse(true)
@@ -50,7 +56,18 @@ function DashboardMain() {
     setUp(false);
     setReqFac(false);
     setChangePwd(false)
+    setUpdateCourse(false)
   }
+
+  const handleUpdateCourse=()=>{
+    setAddCourse(false)
+    setHome(false);
+    setUp(false);
+    setReqFac(false);
+    setChangePwd(false)
+    setUpdateCourse(true)
+  }
+
   return (
    <>
    {/* <h1>Dashboard</h1> */}
@@ -76,6 +93,9 @@ function DashboardMain() {
       <li className="nav-link sidemenu" onClick={handleAddCourse}>
         Add Your Course
       </li>
+      <li className="nav-link sidemenu" onClick={handleUpdateCourse}>
+        See Your Courses
+      </li>
       </ul>
 
   </div>
@@ -91,6 +111,7 @@ function DashboardMain() {
 {(changePwd) ? <ChangePassword /> : ""}
 {(reqFac) ? <ReqFaculties /> : ""}
 {(addCourse) ? <Upload /> : ""}
+{(updateCourse) ? <UpdateandDelete /> : ""}
 </main>
 </div>
 

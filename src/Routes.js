@@ -23,6 +23,10 @@ import SingleCourse from "./components/Courses/Components/SingleCourse";
 import Explore from "./components/Explore/ExploreMain"
 import RankPredictor from "./components/Explore/RankPredictor/RankPredictor"
 import ClgRecommender from "./components/Explore/Recommender/ClgRecommender"
+import Comparison from "./components/Explore/Comparison/Comparison"
+import UpdateCourse from "./components/Courses/Components/UpdateCourse";
+
+
 const Routes = () => {
 
   
@@ -45,6 +49,11 @@ const Routes = () => {
                 },{
                     path:'/courses/:id',
                     element:<LandingPage />
+                },{
+                    
+                    path:'/updateYourCourse/:id',
+                    element:<UpdateCourse />
+                    
                 },{
                     path:'/courses/watchCourse/:id',
                     element:<SingleCourse />
@@ -84,6 +93,10 @@ const Routes = () => {
                 {
                     path: '/CollegeRecommender',
                     element: <ClgRecommender/>
+                },
+                {
+                    path:"/CollegeComaparison",
+                    element:<Comparison />
                 },
                 {
                     path: '/Dashboard',

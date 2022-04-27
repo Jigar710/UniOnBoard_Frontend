@@ -30,6 +30,7 @@ const Coachingdetails = (props) => {
   const [IApprovedBy,setIApprovedBy] = useState("");
   const [IAcceptedExam,setIAcceptedExam] = useState("");
   const [IBranchList,setIBranchList] = useState([]);
+  const [branchList,setBranchList] = useState([]);
 
   useEffect(() => {
          axios.get(coachingDetails_URL,{
@@ -50,6 +51,7 @@ const Coachingdetails = (props) => {
             }
             setIApprovedBy(response.data.institute.approvedBy);
             setIAcceptedExam(response.data.institute.acceptedExam);
+            setBranchList(response.data.institute.branches);
             setIBranchList(response.data.branchList);
           }))
        },[coachingDetails_URL])
@@ -187,21 +189,39 @@ const Coachingdetails = (props) => {
                   {/* <p className='paddingClassBasic'>IT Engineering</p>
                   <p>Computer Engineering</p>
                   <p>Civil Engineering</p> */}
-                  
-                  {
-                  console.log( IBranchList)}{
+                  <table className='istTbl'>
+                          <tr className="branchHeadRow">
+                            <td className="branchTblHeadData">Branches</td>
+                            <td className="branchTblHeadData">Total University Seats</td>
+                            <td className="branchTblHeadData">Total State Seats</td>
+                            <td className="branchTblHeadData">Management Quota(GUJCET)</td>
+                            <td className="branchTblHeadData">Management Quota(JEE)</td>
+                            <td className="branchTblHeadData">NRI Seats</td>
+                            <td className="branchTblHeadData">TFWS Seats</td>
+                            <td className="branchTblHeadData">Total</td>
+                          </tr>
+                    {
                     IBranchList.map(
 
                       branches => (
-                        <div>
-                        <li key={branches}>{branches}</li>
-                        {console.log(branches)}
-                        </div>
+                          <tr className="branchRow">
+                            <td key={branches} className="branchTblData">{branches}</td>
+                            <td key={branches} className="branchTblData">{branchList[branches].universitySeatsFromTotal}</td>
+                            <td key={branches} className="branchTblData">{branchList[branches].stateSeatsFromTotal}</td>
+                            <td key={branches} className="branchTblData">{branchList[branches].managementQuotaOnGujcet}</td>
+                            <td key={branches} className="branchTblData">{branchList[branches].managementQuotaOnJee}</td>
+                            <td key={branches} className="branchTblData">{branchList[branches].nriSeats}</td>
+                            <td key={branches} className="branchTblData">{branchList[branches].tfwsSeats}</td>
+                            <td key={branches} className="branchTblData">{branchList[branches].totalSeats}</td>
+                            {console.log(branchList[branches])}
+                          </tr>
+                        
                       )
                           
                     )
                     
                     }
+                    </table>
                   
                     
             

@@ -34,16 +34,19 @@ const ExploreMain = () => {
 					</div>
 				</div>
 				</Link>
+				<Link to="/CollegeComaparison" style={{textDecoration:"none"}}>
 				<div className="explorecard">
-                <h1 className="exploreheader">Comparison</h1>
+                <h1 className="exploreheader" style={{color:"black"}}>Comparison</h1>
                 <div className="container" style={{backgroundImage:`url(${require('./1605285-200.png')})`,backgroundSize:"150px 150px",width:"150px",height:"150px",alignSelf:"center"}}></div>
 					<div className="container explorecontent">
-						<p style={{fontWeight:"bolder"}}>
+						<p style={{fontWeight:"bolder",color:"black"}} >
 							This Rank Predicor can predict your rank according to your
 							Gujcet and Board merit.
 						</p>
 					</div>
 				</div>
+				</Link>
+				
 			</div>
             </div>
 		</>
